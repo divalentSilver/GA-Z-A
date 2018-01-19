@@ -49,7 +49,7 @@ class CreateNewPostViewController: UITableViewController {
         }
         else if indexPath.row == 2{
             let pictureSelectionCell = tableView.dequeueReusableCell(withIdentifier: "PictureSelectionCell", for: indexPath)
-            //pictureSelectionCell.textLabel =
+            //pictureSelectionCell.textLabel?.text = "사진 선택하기"
             return pictureSelectionCell
         }
         else{

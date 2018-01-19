@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 class User{
     var name: String = ""
     var id: String = ""
@@ -79,4 +80,4 @@ class Picture{
     
 }
 
-
+*/
