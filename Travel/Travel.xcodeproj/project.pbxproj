@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		8C562F632011B82F00B2E931 /* DataSetExFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F622011B82F00B2E931 /* DataSetExFile.swift */; };
 		8C562F672011BD8000B2E931 /* CreateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F662011BD8000B2E931 /* CreateNewPostViewController.swift */; };
+		8C562F762011D58200B2E931 /* CHContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F692011D58200B2E931 /* CHContentViewController.swift */; };
+		8C562F772011D58200B2E931 /* CHControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6A2011D58200B2E931 /* CHControls.swift */; };
+		8C562F782011D58200B2E931 /* CHModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6B2011D58200B2E931 /* CHModalViewController.swift */; };
+		8C562F792011D58200B2E931 /* CHPagingScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6C2011D58200B2E931 /* CHPagingScrollViewController.swift */; };
+		8C562F7A2011D58200B2E931 /* CHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6D2011D58200B2E931 /* CHPickerViewController.swift */; };
+		8C562F7B2011D58300B2E931 /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6E2011D58200B2E931 /* CHTableViewControllers.swift */; };
+		8C562F7C2011D58300B2E931 /* CHViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F6F2011D58200B2E931 /* CHViews.swift */; };
+		8C562F7D2011D58300B2E931 /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F702011D58200B2E931 /* DrawingCanvasView.swift */; };
+		8C562F7E2011D58300B2E931 /* FIlters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F712011D58200B2E931 /* FIlters.swift */; };
+		8C562F7F2011D58300B2E931 /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F722011D58200B2E931 /* NavigationControllers.swift */; };
+		8C562F802011D58300B2E931 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F732011D58200B2E931 /* RecordButton.swift */; };
+		8C562F812011D58300B2E931 /* SwipeActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F742011D58200B2E931 /* SwipeActionTableViewCell.swift */; };
+		8C562F822011D58300B2E931 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C562F752011D58200B2E931 /* UIViewController+Navigation.swift */; };
 		8CB3327C200F2DF3009EE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3327B200F2DF3009EE4CD /* AppDelegate.swift */; };
 		8CB3327E200F2DF3009EE4CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3327D200F2DF3009EE4CD /* ViewController.swift */; };
 		8CB33281200F2DF3009EE4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3327F200F2DF3009EE4CD /* Main.storyboard */; };
@@ -19,6 +32,19 @@
 /* Begin PBXFileReference section */
 		8C562F622011B82F00B2E931 /* DataSetExFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetExFile.swift; sourceTree = "<group>"; };
 		8C562F662011BD8000B2E931 /* CreateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPostViewController.swift; sourceTree = "<group>"; };
+		8C562F692011D58200B2E931 /* CHContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHContentViewController.swift; sourceTree = "<group>"; };
+		8C562F6A2011D58200B2E931 /* CHControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHControls.swift; sourceTree = "<group>"; };
+		8C562F6B2011D58200B2E931 /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHModalViewController.swift; sourceTree = "<group>"; };
+		8C562F6C2011D58200B2E931 /* CHPagingScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPagingScrollViewController.swift; sourceTree = "<group>"; };
+		8C562F6D2011D58200B2E931 /* CHPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPickerViewController.swift; sourceTree = "<group>"; };
+		8C562F6E2011D58200B2E931 /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
+		8C562F6F2011D58200B2E931 /* CHViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHViews.swift; sourceTree = "<group>"; };
+		8C562F702011D58200B2E931 /* DrawingCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
+		8C562F712011D58200B2E931 /* FIlters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIlters.swift; sourceTree = "<group>"; };
+		8C562F722011D58200B2E931 /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
+		8C562F732011D58200B2E931 /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		8C562F742011D58200B2E931 /* SwipeActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeActionTableViewCell.swift; sourceTree = "<group>"; };
+		8C562F752011D58200B2E931 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8CB33278200F2DF3009EE4CD /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3327B200F2DF3009EE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB3327D200F2DF3009EE4CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +65,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C562F682011D58200B2E931 /* PilotPlant */ = {
+			isa = PBXGroup;
+			children = (
+				8C562F692011D58200B2E931 /* CHContentViewController.swift */,
+				8C562F6A2011D58200B2E931 /* CHControls.swift */,
+				8C562F6B2011D58200B2E931 /* CHModalViewController.swift */,
+				8C562F6C2011D58200B2E931 /* CHPagingScrollViewController.swift */,
+				8C562F6D2011D58200B2E931 /* CHPickerViewController.swift */,
+				8C562F6E2011D58200B2E931 /* CHTableViewControllers.swift */,
+				8C562F6F2011D58200B2E931 /* CHViews.swift */,
+				8C562F702011D58200B2E931 /* DrawingCanvasView.swift */,
+				8C562F712011D58200B2E931 /* FIlters.swift */,
+				8C562F722011D58200B2E931 /* NavigationControllers.swift */,
+				8C562F732011D58200B2E931 /* RecordButton.swift */,
+				8C562F742011D58200B2E931 /* SwipeActionTableViewCell.swift */,
+				8C562F752011D58200B2E931 /* UIViewController+Navigation.swift */,
+			);
+			path = PilotPlant;
+			sourceTree = "<group>";
+		};
 		8CB3326F200F2DF3009EE4CD = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +104,7 @@
 		8CB3327A200F2DF3009EE4CD /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				8C562F682011D58200B2E931 /* PilotPlant */,
 				8CB3327B200F2DF3009EE4CD /* AppDelegate.swift */,
 				8C562F622011B82F00B2E931 /* DataSetExFile.swift */,
 				8CB3327D200F2DF3009EE4CD /* ViewController.swift */,
@@ -143,9 +190,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB3327E200F2DF3009EE4CD /* ViewController.swift in Sources */,
+				8C562F7F2011D58300B2E931 /* NavigationControllers.swift in Sources */,
+				8C562F812011D58300B2E931 /* SwipeActionTableViewCell.swift in Sources */,
 				8C562F672011BD8000B2E931 /* CreateNewPostViewController.swift in Sources */,
+				8C562F7B2011D58300B2E931 /* CHTableViewControllers.swift in Sources */,
+				8C562F762011D58200B2E931 /* CHContentViewController.swift in Sources */,
+				8C562F7A2011D58200B2E931 /* CHPickerViewController.swift in Sources */,
+				8C562F7D2011D58300B2E931 /* DrawingCanvasView.swift in Sources */,
+				8C562F782011D58200B2E931 /* CHModalViewController.swift in Sources */,
+				8C562F792011D58200B2E931 /* CHPagingScrollViewController.swift in Sources */,
+				8C562F822011D58300B2E931 /* UIViewController+Navigation.swift in Sources */,
 				8C562F632011B82F00B2E931 /* DataSetExFile.swift in Sources */,
+				8C562F7C2011D58300B2E931 /* CHViews.swift in Sources */,
+				8C562F772011D58200B2E931 /* CHControls.swift in Sources */,
+				8C562F7E2011D58300B2E931 /* FIlters.swift in Sources */,
 				8CB3327C200F2DF3009EE4CD /* AppDelegate.swift in Sources */,
+				8C562F802011D58300B2E931 /* RecordButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
