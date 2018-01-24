@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostNameCell" id="hxi-LI-iNr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostNameCell" id="hxi-LI-iNr" customClass="PostNameTableViewCell" customModule="Travel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxi-LI-iNr" id="sNL-23-ccy">
@@ -31,11 +31,17 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="PostName:" destination="hxi-LI-iNr" eventType="editingDidEnd" id="CQY-op-KCU"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="PostName" destination="zmY-Wh-BMK" id="tt8-Ny-phM"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" id="1F8-jl-HV9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" id="1F8-jl-HV9" customClass="DateTableViewCell" customModule="Travel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1F8-jl-HV9" id="4vd-9p-897">
@@ -48,10 +54,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-t9-D1q">
                                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="StartDate:" destination="1F8-jl-HV9" eventType="touchUpInside" id="Txa-st-FB2"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WF-jh-h98">
                                                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="43.5"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="EndDate:" destination="1F8-jl-HV9" eventType="touchUpInside" id="PLa-0N-YhV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -63,8 +75,12 @@
                                         <constraint firstItem="Wc8-O2-Q5B" firstAttribute="top" secondItem="4vd-9p-897" secondAttribute="top" id="zJW-AQ-AbY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="EndDate" destination="8WF-jh-h98" id="YM8-xM-aLb"/>
+                                    <outlet property="StartDate" destination="cOS-t9-D1q" id="1kd-wp-e2f"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PictureSelectionCell" id="9nn-Wj-ljv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PictureSelectionCell" id="9nn-Wj-ljv" customClass="PictureSelectionTableViewCell" customModule="Travel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9nn-Wj-ljv" id="AC0-IR-7EI">
@@ -103,6 +119,10 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="Tag:" destination="ETp-lL-Wns" eventType="editingDidEnd" id="1yd-LU-fhK"/>
+                                                <action selector="Tags:" destination="ETp-lL-Wns" eventType="editingDidEnd" id="siV-Au-Kpv"/>
+                                            </connections>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="assistant" translatesAutoresizingMaskIntoConstraints="NO" id="OoK-iL-Wz9">
                                             <rect key="frame" x="16" y="4" width="35" height="35"/>
@@ -126,6 +146,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90R-kO-3FX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ETp-lL-Wns" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="276" y="183.95802098950526"/>
         </scene>

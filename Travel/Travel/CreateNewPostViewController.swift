@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CreateNewPostViewController: UITableViewController {
 
     override func viewDidLoad() {
