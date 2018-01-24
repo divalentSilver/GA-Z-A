@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ms7-uD-HFG">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ms7-uD-HFG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
                         </subviews>
@@ -37,11 +37,13 @@
             </objects>
             <point key="canvasLocation" x="1460" y="150.67466266866569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="7eq-DD-n9Q">
             <objects>
                 <navigationController storyboardIdentifier="MapTabScene" automaticallyAdjustsScrollViewInsets="NO" id="3uj-YG-o7n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="yeU-js-5ay"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Akv-0g-Rja">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

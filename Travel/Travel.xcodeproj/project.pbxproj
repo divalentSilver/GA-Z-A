@@ -29,6 +29,8 @@
 		8C88835120185314000EA645 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88835020185314000EA645 /* DateTableViewCell.swift */; };
 		8C8883532018532F000EA645 /* PictureSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8883522018532F000EA645 /* PictureSelectionTableViewCell.swift */; };
 		8C8883552018534F000EA645 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8883542018534F000EA645 /* TagTableViewCell.swift */; };
+		8C88837520186925000EA645 /* MyStoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88837420186925000EA645 /* MyStoryCollectionViewController.swift */; };
+		8C88837720186ECF000EA645 /* MyStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C88837620186ECF000EA645 /* MyStoryCollectionViewCell.swift */; };
 		8CB3327C200F2DF3009EE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3327B200F2DF3009EE4CD /* AppDelegate.swift */; };
 		8CB3327E200F2DF3009EE4CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3327D200F2DF3009EE4CD /* ViewController.swift */; };
 		8CB33281200F2DF3009EE4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3327F200F2DF3009EE4CD /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		8C88835020185314000EA645 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		8C8883522018532F000EA645 /* PictureSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		8C8883542018534F000EA645 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
+		8C88837420186925000EA645 /* MyStoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCollectionViewController.swift; sourceTree = "<group>"; };
+		8C88837620186ECF000EA645 /* MyStoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8CB33278200F2DF3009EE4CD /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3327B200F2DF3009EE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB3327D200F2DF3009EE4CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				8C8883542018534F000EA645 /* TagTableViewCell.swift */,
 				8C88834E201852CC000EA645 /* PostNameTableViewCell.swift */,
 				8C77F68620172FF300086BF2 /* KyoungLinStoryboard.storyboard */,
+				8C88837620186ECF000EA645 /* MyStoryCollectionViewCell.swift */,
+				8C88837420186925000EA645 /* MyStoryCollectionViewController.swift */,
 				8C562F662011BD8000B2E931 /* CreateNewPostViewController.swift */,
 				8CB33282200F2DF3009EE4CD /* Assets.xcassets */,
 				8CB33284200F2DF3009EE4CD /* LaunchScreen.storyboard */,
@@ -219,6 +225,7 @@
 				8C562F672011BD8000B2E931 /* CreateNewPostViewController.swift in Sources */,
 				8C88834F201852CC000EA645 /* PostNameTableViewCell.swift in Sources */,
 				8C562F7B2011D58300B2E931 /* CHTableViewControllers.swift in Sources */,
+				8C88837520186925000EA645 /* MyStoryCollectionViewController.swift in Sources */,
 				8C562F762011D58200B2E931 /* CHContentViewController.swift in Sources */,
 				8C8883532018532F000EA645 /* PictureSelectionTableViewCell.swift in Sources */,
 				8C562F7A2011D58200B2E931 /* CHPickerViewController.swift in Sources */,
@@ -229,6 +236,7 @@
 				8C562F822011D58300B2E931 /* UIViewController+Navigation.swift in Sources */,
 				8C562F632011B82F00B2E931 /* DataSetExFile.swift in Sources */,
 				8C562F7C2011D58300B2E931 /* CHViews.swift in Sources */,
+				8C88837720186ECF000EA645 /* MyStoryCollectionViewCell.swift in Sources */,
 				8C562F772011D58200B2E931 /* CHControls.swift in Sources */,
 				8C8883552018534F000EA645 /* TagTableViewCell.swift in Sources */,
 				8C562F7E2011D58300B2E931 /* FIlters.swift in Sources */,

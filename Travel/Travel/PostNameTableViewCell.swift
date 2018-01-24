@@ -11,8 +11,8 @@ import UIKit
 class PostNameTableViewCell: UITableViewCell {
 
 
-    @IBAction func PostName(_ sender: Any) {
-    }
+    @IBOutlet weak var PostName: UITextField!
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
