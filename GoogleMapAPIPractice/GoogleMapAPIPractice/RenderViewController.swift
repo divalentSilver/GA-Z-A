@@ -20,7 +20,7 @@ class KMLViewController: UIViewController {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
         
-        let path = Bundle.main.path(forResource: "KOR", ofType: "kml")
+        let path = Bundle.main.path(forResource: "South Korea divisions. Level 2", ofType: "kml")
         let url = URL(fileURLWithPath: path!)
         kmlParser = GMUKMLParser(url: url)
         kmlParser.parse()

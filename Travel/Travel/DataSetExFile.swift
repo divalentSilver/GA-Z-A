@@ -61,7 +61,7 @@ struct Picture{
     var comment: String = ""
     let picDate: [Int] = [] //사진에서 정보 가져올 것임
     let picLocation: String = "" //사진에서 정보 가져올 것임
-    //var favoriteButtonState: Bool = false
+    var favoriteButtonState: Bool = false
     
     init() {
     }

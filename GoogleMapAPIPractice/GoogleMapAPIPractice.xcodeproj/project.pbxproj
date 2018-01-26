@@ -15,7 +15,6 @@
 		07039FA220175E8100879FFA /* GoogleMapAPIPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07039FA120175E8100879FFA /* GoogleMapAPIPracticeTests.swift */; };
 		07039FAD20175E8100879FFA /* GoogleMapAPIPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07039FAC20175E8100879FFA /* GoogleMapAPIPracticeUITests.swift */; };
 		07039FBB201767CE00879FFA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07039FBA201767CE00879FFA /* MapViewController.swift */; };
-		071BAA8D201A0E89002ECD93 /* South_Korea.kml in Resources */ = {isa = PBXBuildFile; fileRef = 071BAA8C201A0E89002ECD93 /* South_Korea.kml */; };
 		079F1D602018EFC90087E466 /* GMUClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D1A2018EFC90087E466 /* GMUClusterManager.m */; };
 		079F1D612018EFC90087E466 /* GMUGridBasedClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D1E2018EFC90087E466 /* GMUGridBasedClusterAlgorithm.m */; };
 		079F1D622018EFC90087E466 /* GMUWrappingDictionaryKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D212018EFC90087E466 /* GMUWrappingDictionaryKey.m */; };
@@ -41,8 +40,7 @@
 		079F1D762018EFC90087E466 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D592018EFC90087E466 /* GQTPointQuadTree.m */; };
 		079F1D772018EFC90087E466 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D5B2018EFC90087E466 /* GQTPointQuadTreeChild.m */; };
 		079F1D792018F0F00087E466 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D782018F0F00087E466 /* RenderViewController.swift */; };
-		079F1D7B201999CC0087E466 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 079F1D7A201999CB0087E466 /* KML_Sample.kml */; };
-		07A96E99201ACFB6007BEF01 /* KOR.kml in Resources */ = {isa = PBXBuildFile; fileRef = 07A96E98201ACFB6007BEF01 /* KOR.kml */; };
+		07A96E9D201B0AA5007BEF01 /* South Korea divisions. Level 2.kml in Resources */ = {isa = PBXBuildFile; fileRef = 07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */; };
 		50A916BAE0115351FCCC3B5B /* Pods_GoogleMapAPIPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */; };
 		D525C0A6F5F7142676BC91C4 /* Pods_GoogleMapAPIPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */; };
 		DE249731B77ADE19019108EC /* Pods_GoogleMapAPIPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */; };
@@ -81,7 +79,6 @@
 		07039FAC20175E8100879FFA /* GoogleMapAPIPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapAPIPracticeUITests.swift; sourceTree = "<group>"; };
 		07039FAE20175E8100879FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07039FBA201767CE00879FFA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		071BAA8C201A0E89002ECD93 /* South_Korea.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = South_Korea.kml; sourceTree = SOURCE_ROOT; };
 		079F1D1A2018EFC90087E466 /* GMUClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMUClusterManager.m; sourceTree = "<group>"; };
 		079F1D1B2018EFC90087E466 /* GMUStaticCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUStaticCluster.h; sourceTree = "<group>"; };
 		079F1D1C2018EFC90087E466 /* GMUMarkerClustering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMUMarkerClustering.h; sourceTree = "<group>"; };
@@ -147,8 +144,7 @@
 		079F1D5E2018EFC90087E466 /* GQTPointQuadTreeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTreeChild.h; sourceTree = "<group>"; };
 		079F1D5F2018EFC90087E466 /* GQTBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTBounds.h; sourceTree = "<group>"; };
 		079F1D782018F0F00087E466 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
-		079F1D7A201999CB0087E466 /* KML_Sample.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KML_Sample.kml; sourceTree = SOURCE_ROOT; };
-		07A96E98201ACFB6007BEF01 /* KOR.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KOR.kml; sourceTree = SOURCE_ROOT; };
+		07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "South Korea divisions. Level 2.kml"; sourceTree = SOURCE_ROOT; };
 		132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16660983B3DBC1C2A07ADD4D /* Pods-GoogleMapAPIPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeTests/Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,9 +209,7 @@
 		07039F8B20175E8000879FFA /* GoogleMapAPIPractice */ = {
 			isa = PBXGroup;
 			children = (
-				079F1D7A201999CB0087E466 /* KML_Sample.kml */,
-				07A96E98201ACFB6007BEF01 /* KOR.kml */,
-				071BAA8C201A0E89002ECD93 /* South_Korea.kml */,
+				07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */,
 				07039F8C20175E8000879FFA /* AppDelegate.swift */,
 				07039F8E20175E8000879FFA /* ViewController.swift */,
 				07039F9020175E8000879FFA /* Main.storyboard */,
@@ -513,11 +507,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				07039F9720175E8000879FFA /* LaunchScreen.storyboard in Resources */,
-				079F1D7B201999CC0087E466 /* KML_Sample.kml in Resources */,
 				07039F9420175E8000879FFA /* Assets.xcassets in Resources */,
-				07A96E99201ACFB6007BEF01 /* KOR.kml in Resources */,
+				07A96E9D201B0AA5007BEF01 /* South Korea divisions. Level 2.kml in Resources */,
 				07039F9220175E8000879FFA /* Main.storyboard in Resources */,
-				071BAA8D201A0E89002ECD93 /* South_Korea.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
