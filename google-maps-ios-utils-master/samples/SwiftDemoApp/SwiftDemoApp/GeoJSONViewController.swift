@@ -26,7 +26,7 @@ class GeoJSONViewController: UIViewController {
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     self.view = mapView
 
-    let path = Bundle.main.path(forResource: "GeoJSON_sample", ofType: "json")
+    let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
     let url = URL(fileURLWithPath: path!)
     geoJsonParser = GMUGeoJSONParser(url: url)
     geoJsonParser.parse()
@@ -34,5 +34,17 @@ class GeoJSONViewController: UIViewController {
     renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
 
     renderer.render()
+    
+    
+    var yourPoint = CLLocationCoordinate2DMake(0, 0)
+    //var pathOfPolygon =
+    
+    /*
+    if GMSGeometryContainsLocation(yourPoint, pathOfPolygon, true) {
+        print("YES: you are in this polygon.")
+    } else {
+        print("You do not appear to be in this polygon.")
+    }
+    */
   }
 }

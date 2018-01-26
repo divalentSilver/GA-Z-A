@@ -9,6 +9,7 @@
 #import "GMUMarkerClustering.h"
 #import "GMUGeometryRenderer.h"
 #import "GMUKMLParser.h"
+#import "GMUGeoJSONParser.h"
 
 #ifndef GoogleMapAPIPractice_Bridging_Header_h
 #define GoogleMapAPIPractice_Bridging_Header_h

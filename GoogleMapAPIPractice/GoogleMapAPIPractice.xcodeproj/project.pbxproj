@@ -40,7 +40,9 @@
 		079F1D762018EFC90087E466 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D592018EFC90087E466 /* GQTPointQuadTree.m */; };
 		079F1D772018EFC90087E466 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D5B2018EFC90087E466 /* GQTPointQuadTreeChild.m */; };
 		079F1D792018F0F00087E466 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D782018F0F00087E466 /* RenderViewController.swift */; };
-		07A96E9D201B0AA5007BEF01 /* South Korea divisions. Level 2.kml in Resources */ = {isa = PBXBuildFile; fileRef = 07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */; };
+		07A96EA3201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */; };
+		07A96EA5201B8128007BEF01 /* GeoJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */; };
+		07A96EA7201B812E007BEF01 /* GeoJSON_sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A96EA6201B812E007BEF01 /* GeoJSON_sample.json */; };
 		50A916BAE0115351FCCC3B5B /* Pods_GoogleMapAPIPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */; };
 		D525C0A6F5F7142676BC91C4 /* Pods_GoogleMapAPIPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */; };
 		DE249731B77ADE19019108EC /* Pods_GoogleMapAPIPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */; };
@@ -60,6 +62,55 @@
 			proxyType = 1;
 			remoteGlobalIDString = 07039F8820175E8000879FFA;
 			remoteInfo = GoogleMapAPIPractice;
+		};
+		07A96ECE201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		07A96ED0201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFE619575BE100351305;
+			remoteInfo = "SwiftyJSON iOS Tests";
+		};
+		07A96ED2201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC5B1A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON macOS";
+		};
+		07A96ED4201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C7DFC651A9102BD005AA3F7;
+			remoteInfo = "SwiftyJSON macOS Tests";
+		};
+		07A96ED6201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4D7CCE81B9465A700EE7221;
+			remoteInfo = "SwiftyJSON watchOS";
+		};
+		07A96ED8201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7236B4F61BAC14150020529B;
+			remoteInfo = "SwiftyJSON tvOS";
+		};
+		07A96EDA201B9EAA007BEF01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
+			remoteInfo = "SwiftyJSON tvOS Tests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -144,7 +195,10 @@
 		079F1D5E2018EFC90087E466 /* GQTPointQuadTreeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTreeChild.h; sourceTree = "<group>"; };
 		079F1D5F2018EFC90087E466 /* GQTBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTBounds.h; sourceTree = "<group>"; };
 		079F1D782018F0F00087E466 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
-		07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "South Korea divisions. Level 2.kml"; sourceTree = SOURCE_ROOT; };
+		07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HangJeongDong_ver2017xxxx_for update.geojson"; sourceTree = SOURCE_ROOT; };
+		07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoJSONViewController.swift; path = "../../google-maps-ios-utils-master/samples/SwiftDemoApp/SwiftDemoApp/GeoJSONViewController.swift"; sourceTree = "<group>"; };
+		07A96EA6201B812E007BEF01 /* GeoJSON_sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GeoJSON_sample.json; path = "../../google-maps-ios-utils-master/samples/SwiftDemoApp/SwiftDemoApp/GeoJSON_sample.json"; sourceTree = "<group>"; };
+		07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16660983B3DBC1C2A07ADD4D /* Pods-GoogleMapAPIPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeTests/Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +263,9 @@
 		07039F8B20175E8000879FFA /* GoogleMapAPIPractice */ = {
 			isa = PBXGroup;
 			children = (
-				07A96E9C201B0AA5007BEF01 /* South Korea divisions. Level 2.kml */,
+				07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */,
+				07A96EA6201B812E007BEF01 /* GeoJSON_sample.json */,
+				07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */,
 				07039F8C20175E8000879FFA /* AppDelegate.swift */,
 				07039F8E20175E8000879FFA /* ViewController.swift */,
 				07039F9020175E8000879FFA /* Main.storyboard */,
@@ -316,10 +372,10 @@
 		079F1D3C2018EFC90087E466 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				079F1D402018EFC90087E466 /* Model */,
 				079F1D3D2018EFC90087E466 /* GMUKMLParser.m */,
 				079F1D3E2018EFC90087E466 /* GMUGeometryRenderer.m */,
 				079F1D3F2018EFC90087E466 /* GMUGeoJSONParser.h */,
-				079F1D402018EFC90087E466 /* Model */,
 				079F1D532018EFC90087E466 /* GMUKMLParser.h */,
 				079F1D542018EFC90087E466 /* GMUGeometryRenderer+Testing.h */,
 				079F1D552018EFC90087E466 /* GMUGeoJSONParser.m */,
@@ -367,12 +423,27 @@
 			path = QuadTree;
 			sourceTree = "<group>";
 		};
+		07A96EC4201B9EA9007BEF01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07A96ECF201B9EAA007BEF01 /* SwiftyJSON.framework */,
+				07A96ED1201B9EAA007BEF01 /* SwiftyJSON iOS Tests.xctest */,
+				07A96ED3201B9EAA007BEF01 /* SwiftyJSON.framework */,
+				07A96ED5201B9EAA007BEF01 /* SwiftyJSON macOS Tests.xctest */,
+				07A96ED7201B9EAA007BEF01 /* SwiftyJSON.framework */,
+				07A96ED9201B9EAA007BEF01 /* SwiftyJSON.framework */,
+				07A96EDB201B9EAA007BEF01 /* SwiftyJSON tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		73CD6C580F21BA212DD5E2ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */,
 				EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */,
 				132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */,
+				07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -492,6 +563,12 @@
 			mainGroup = 07039F8020175E8000879FFA;
 			productRefGroup = 07039F8A20175E8000879FFA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 07A96EC4201B9EA9007BEF01 /* Products */;
+					ProjectRef = 07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				07039F8820175E8000879FFA /* GoogleMapAPIPractice */,
@@ -501,6 +578,58 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		07A96ECF201B9EAA007BEF01 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 07A96ECE201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96ED1201B9EAA007BEF01 /* SwiftyJSON iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON iOS Tests.xctest";
+			remoteRef = 07A96ED0201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96ED3201B9EAA007BEF01 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 07A96ED2201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96ED5201B9EAA007BEF01 /* SwiftyJSON macOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON macOS Tests.xctest";
+			remoteRef = 07A96ED4201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96ED7201B9EAA007BEF01 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 07A96ED6201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96ED9201B9EAA007BEF01 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 07A96ED8201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07A96EDB201B9EAA007BEF01 /* SwiftyJSON tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftyJSON tvOS Tests.xctest";
+			remoteRef = 07A96EDA201B9EAA007BEF01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		07039F8720175E8000879FFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -508,8 +637,9 @@
 			files = (
 				07039F9720175E8000879FFA /* LaunchScreen.storyboard in Resources */,
 				07039F9420175E8000879FFA /* Assets.xcassets in Resources */,
-				07A96E9D201B0AA5007BEF01 /* South Korea divisions. Level 2.kml in Resources */,
 				07039F9220175E8000879FFA /* Main.storyboard in Resources */,
+				07A96EA3201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson in Resources */,
+				07A96EA7201B812E007BEF01 /* GeoJSON_sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +836,7 @@
 				079F1D722018EFC90087E466 /* GMUStyle.m in Sources */,
 				079F1D6F2018EFC90087E466 /* GMUPolygon.m in Sources */,
 				079F1D6B2018EFC90087E466 /* GMUKMLParser.m in Sources */,
+				07A96EA5201B8128007BEF01 /* GeoJSONViewController.swift in Sources */,
 				079F1D712018EFC90087E466 /* GMUGroundOverlay.m in Sources */,
 				079F1D612018EFC90087E466 /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				079F1D6A2018EFC90087E466 /* GMUHeatmapTileLayer.m in Sources */,

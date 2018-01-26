@@ -7,13 +7,14 @@
 //
 
 import GoogleMaps
+import SwiftyJSON
 import UIKit
+
 
 class KMLViewController: UIViewController {
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
     private var kmlParser: GMUKMLParser!
-    //private var geoJsonParser: GMUGeoJSONParser!
     
     override func loadView() {
         let camera = GMSCameraPosition.camera(withLatitude: 37.4220, longitude: -122.0841, zoom: 0.01)
@@ -30,6 +31,8 @@ class KMLViewController: UIViewController {
                                        styles: kmlParser.styles)
         
         renderer.render()
+        
+        
         
     }
     
