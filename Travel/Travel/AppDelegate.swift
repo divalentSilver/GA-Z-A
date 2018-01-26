@@ -12,10 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var posts: [Post] = []
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let picture1_1 = Picture()
+        picture1_1.picData = #imageLiteral(resourceName: "IMG_2119")
+        
+        let post1 = Post(pictures: [picture1_1], travelStartDate: [2017, 11, 3], travelEndDate: [2017, 11, 3], travelName: "Hell1")
+        posts.append(post1)
+        
+        let picture2_1 = Picture()
+        let picture2_2 = Picture()
+        picture2_1.picData = #imageLiteral(resourceName: "IMG_0997")
+        picture2_2.picData = #imageLiteral(resourceName: "IMG_1004")
+        
+        let post2 = Post(pictures: [picture2_1, picture2_2], travelStartDate: [2018, 1, 26], travelEndDate: [2018, 1, 26], travelName: "Hell2")
+        posts.append(post2)
+
+        
+        
         return true
     }
 
