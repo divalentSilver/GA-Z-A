@@ -20,7 +20,7 @@ class KMLViewController: UIViewController {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
         
-        let path = Bundle.main.path(forResource: "KML_Sample", ofType: "kml")
+        let path = Bundle.main.path(forResource: "KOR", ofType: "kml")
         let url = URL(fileURLWithPath: path!)
         kmlParser = GMUKMLParser(url: url)
         kmlParser.parse()
@@ -30,12 +30,12 @@ class KMLViewController: UIViewController {
                                        styles: kmlParser.styles)
         
         renderer.render()
-        print("view load")
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
+        
     }
 
     override func didReceiveMemoryWarning() {
