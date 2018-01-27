@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import GoogleMaps
 import UIKit
+import GoogleMaps
 import SwiftyJSON
-
 
 
 class GeoJSONViewController: UIViewController {
@@ -24,68 +23,63 @@ class GeoJSONViewController: UIViewController {
   private var renderer: GMUGeometryRenderer!
   private var geoJsonParser: GMUGeoJSONParser!
 
-  override func loadView() {
-    let camera = GMSCameraPosition.camera(withLatitude: -28, longitude: 137, zoom: 4)
-    mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-    self.view = mapView
 
-    /*
-    let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-    let url = URL(fileURLWithPath: path!)
-    geoJsonParser = GMUGeoJSONParser(url: url)
-    geoJsonParser.parse()
-
-    renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-
-    renderer.render()
-     */
+    func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
+        if GMSGeometryContainsLocation(point, path, true) {
+            return true
+        } else {
+            return false
+        }
+    }
     
+    func colorPolygon(path: GMSMutablePath){
+        let polygon = GMSPolygon(path: path)
+        polygon.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1);
+        polygon.strokeColor = .black
+        polygon.strokeWidth = 2
+        polygon.map = mapView
+    }
     
-    
-    /*
-    
-    if let path = Bundle.main.path(forResource: "sample", ofType: "geojson"), let data = NSData(contentsOfFile: path) {
-        do {
-            
-            
-            let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.allowFragments)
-            //print(jsonData)
-            
-            
-            /*
-            if let dictionary = jsonData as? [String: AnyObject]{
-                print(dictionary)
+    func findPolygonIncludingPoint(lat: Double, long: Double, json: JSON){
+        let point = CLLocationCoordinate2DMake(lat, long)
+        let admDistricts = json["features"]//행정구역들의 배열
+        for j in 0..<admDistricts.count{
+            let path = GMSMutablePath()
+            let boundaryPoints = admDistricts[j]["geometry"]["coordinates"][0]//하나의 행정구역 경계점들의 배열
+            for i in 0..<boundaryPoints.count{//경계점들로 path생성
+                path.add(CLLocationCoordinate2D(latitude: boundaryPoints[i][1].double!, longitude: boundaryPoints[i][0].double!))
             }
-            */
-            
-        }
-        catch{
-            print("error")
+            if isPointInPolygon(point: point, path: path){
+                colorPolygon(path: path)
+            }
         }
     }
-*/
-    //let json = JSON(data: jsonData as! Data)
-    let path = Bundle.main.path(forResource: "sample", ofType: "geojson")
-    let data = NSData(contentsOfFile: path!)
-    let json = JSON(data! as Data)
-    //print(json)
-    //print(json["features"][0]["geometry"]["coordinates"][0][0])
     
-    let yourPoint = CLLocationCoordinate2DMake(37.574832, 126.969185)
-    let sajikdong = GMSMutablePath()
-    let boundaryPoints = json["features"][0]["geometry"]["coordinates"][0]
-    for i in 0..<boundaryPoints.count{
-        //print("\(boundaryPoints[i][0]) \(boundaryPoints[i][1])")
-        sajikdong.add(CLLocationCoordinate2D(latitude: boundaryPoints[i][1].double!, longitude: boundaryPoints[i][0].double!))
+    override func loadView() {
+        let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        self.view = mapView
+        
+        /*
+        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
+        let url = URL(fileURLWithPath: path!)
+        geoJsonParser = GMUGeoJSONParser(url: url)
+        geoJsonParser.parse()
+
+        renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
+
+        renderer.render()
+         */
+        
+        
+        let path = Bundle.main.path(forResource: "sample", ofType: "geojson")
+        let data = NSData(contentsOfFile: path!)
+        let json = JSON(data! as Data)
+        
+        findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+    
+    
     }
-    
-    if GMSGeometryContainsLocation(yourPoint, sajikdong, true) {
-        print("***YES: you are in this polygon.")
-    } else {
-        print("***You do not appear to be in this polygon.")
-    }
-    
-  }
     
     func readJSONObject(object: [String: AnyObject]){
         
