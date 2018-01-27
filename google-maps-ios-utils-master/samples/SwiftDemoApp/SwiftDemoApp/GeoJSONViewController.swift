@@ -45,12 +45,16 @@ class GeoJSONViewController: UIViewController {
         let admDistricts = json["features"]//행정구역들의 배열
         for j in 0..<admDistricts.count{
             let path = GMSMutablePath()
-            let boundaryPoints = admDistricts[j]["geometry"]["coordinates"][0]//하나의 행정구역 경계점들의 배열
-            for i in 0..<boundaryPoints.count{//경계점들로 path생성
-                path.add(CLLocationCoordinate2D(latitude: boundaryPoints[i][1].double!, longitude: boundaryPoints[i][0].double!))
-            }
-            if isPointInPolygon(point: point, path: path){
-                colorPolygon(path: path)
+            let boundaries = admDistricts[j]["geometry"]["coordinates"]//하나의 행정구역의 polygon들의 배열
+            for k in 0..<boundaries.count{
+                let boundaryPoints = boundaries[k]//하나의 polygon의 경계점들의 배열
+                for i in 0..<boundaryPoints.count{//경계점들로 path생성
+                    path.add(CLLocationCoordinate2D(latitude: boundaryPoints[i][1].double!, longitude: boundaryPoints[i][0].double!))
+                }
+                if isPointInPolygon(point: point, path: path){
+                    colorPolygon(path: path)
+                    return
+                }
             }
         }
     }
@@ -72,13 +76,13 @@ class GeoJSONViewController: UIViewController {
          */
         
         
-        let path = Bundle.main.path(forResource: "sample", ofType: "geojson")
+        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
-    
-    
+        
+        
     }
     
     func readJSONObject(object: [String: AnyObject]){
