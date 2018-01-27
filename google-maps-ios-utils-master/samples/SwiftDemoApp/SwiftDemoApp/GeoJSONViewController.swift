@@ -40,27 +40,54 @@ class GeoJSONViewController: UIViewController {
     renderer.render()
      */
     
-    if let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson"), let data = NSData(contentsOfFile: path) {
+    
+    
+    /*
+    
+    if let path = Bundle.main.path(forResource: "sample", ofType: "geojson"), let data = NSData(contentsOfFile: path) {
         do {
-            //let jsonString = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            
+            
             let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.allowFragments)
+            //print(jsonData)
+            
+            
+            /*
+            if let dictionary = jsonData as? [String: AnyObject]{
+                print(dictionary)
+            }
+            */
+            
         }
         catch{
             print("error")
         }
     }
-
+*/
     //let json = JSON(data: jsonData as! Data)
+    let path = Bundle.main.path(forResource: "sample", ofType: "geojson")
+    let data = NSData(contentsOfFile: path!)
+    let json = JSON(data! as Data)
+    //print(json)
+    //print(json["features"][0]["geometry"]["coordinates"][0][0])
     
-    var yourPoint = CLLocationCoordinate2DMake(0, 0)
-    //var pathOfPolygon =
-    
-    /*
-    if GMSGeometryContainsLocation(yourPoint, pathOfPolygon, true) {
-        print("YES: you are in this polygon.")
-    } else {
-        print("You do not appear to be in this polygon.")
+    let yourPoint = CLLocationCoordinate2DMake(37.574832, 126.969185)
+    let sajikdong = GMSMutablePath()
+    let boundaryPoints = json["features"][0]["geometry"]["coordinates"][0]
+    for i in 0..<boundaryPoints.count{
+        //print("\(boundaryPoints[i][0]) \(boundaryPoints[i][1])")
+        sajikdong.add(CLLocationCoordinate2D(latitude: boundaryPoints[i][1].double!, longitude: boundaryPoints[i][0].double!))
     }
-    */
+    
+    if GMSGeometryContainsLocation(yourPoint, sajikdong, true) {
+        print("***YES: you are in this polygon.")
+    } else {
+        print("***You do not appear to be in this polygon.")
+    }
+    
   }
+    
+    func readJSONObject(object: [String: AnyObject]){
+        
+    }
 }
