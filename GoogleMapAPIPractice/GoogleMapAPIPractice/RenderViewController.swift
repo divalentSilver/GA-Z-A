@@ -7,7 +7,6 @@
 //
 
 import GoogleMaps
-import SwiftyJSON
 import UIKit
 
 

@@ -15,6 +15,9 @@
 
 import GoogleMaps
 import UIKit
+import SwiftyJSON
+
+
 
 class GeoJSONViewController: UIViewController {
   private var mapView: GMSMapView!
@@ -26,6 +29,7 @@ class GeoJSONViewController: UIViewController {
     mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     self.view = mapView
 
+    /*
     let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
     let url = URL(fileURLWithPath: path!)
     geoJsonParser = GMUGeoJSONParser(url: url)
@@ -34,7 +38,19 @@ class GeoJSONViewController: UIViewController {
     renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
 
     renderer.render()
+     */
     
+    if let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson"), let data = NSData(contentsOfFile: path) {
+        do {
+            //let jsonString = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            let jsonData = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.allowFragments)
+        }
+        catch{
+            print("error")
+        }
+    }
+
+    //let json = JSON(data: jsonData as! Data)
     
     var yourPoint = CLLocationCoordinate2DMake(0, 0)
     //var pathOfPolygon =
