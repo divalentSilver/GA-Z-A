@@ -60,29 +60,32 @@ class GeoJSONViewController: UIViewController {
     }
     
     override func loadView() {
+        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
-        
-        /*
-        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-        let url = URL(fileURLWithPath: path!)
-        geoJsonParser = GMUGeoJSONParser(url: url)
-        geoJsonParser.parse()
-
-        renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-
-        renderer.render()
-         */
-        
         
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        */
         
+        //let asset =
+        //let location = asset.location
+        //let creationDate = asset.creationDate
         
+        /*
+         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
+         let url = URL(fileURLWithPath: path!)
+         geoJsonParser = GMUGeoJSONParser(url: url)
+         geoJsonParser.parse()
+         
+         renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
+         
+         renderer.render()
+         */
     }
     
     func readJSONObject(object: [String: AnyObject]){
