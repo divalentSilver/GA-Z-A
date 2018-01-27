@@ -39,7 +39,6 @@
 		079F1D752018EFC90087E466 /* GMUGeoJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D552018EFC90087E466 /* GMUGeoJSONParser.m */; };
 		079F1D762018EFC90087E466 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D592018EFC90087E466 /* GQTPointQuadTree.m */; };
 		079F1D772018EFC90087E466 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D5B2018EFC90087E466 /* GQTPointQuadTreeChild.m */; };
-		079F1D792018F0F00087E466 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F1D782018F0F00087E466 /* RenderViewController.swift */; };
 		07A96EA3201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */; };
 		07A96EA5201B8128007BEF01 /* GeoJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */; };
 		07A96EE2201C25D7007BEF01 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A96EE3201C25D7007BEF01 /* SwiftyJSON.framework */; };
@@ -195,7 +194,6 @@
 		079F1D5D2018EFC90087E466 /* GQTPointQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTree.h; sourceTree = "<group>"; };
 		079F1D5E2018EFC90087E466 /* GQTPointQuadTreeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTPointQuadTreeChild.h; sourceTree = "<group>"; };
 		079F1D5F2018EFC90087E466 /* GQTBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTBounds.h; sourceTree = "<group>"; };
-		079F1D782018F0F00087E466 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
 		07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HangJeongDong_ver2017xxxx_for update.geojson"; sourceTree = SOURCE_ROOT; };
 		07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoJSONViewController.swift; path = "../../google-maps-ios-utils-master/samples/SwiftDemoApp/SwiftDemoApp/GeoJSONViewController.swift"; sourceTree = "<group>"; };
 		07A96EC3201B9EA9007BEF01 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				07039F8E20175E8000879FFA /* ViewController.swift */,
 				07039F9020175E8000879FFA /* Main.storyboard */,
 				07039FBA201767CE00879FFA /* MapViewController.swift */,
-				079F1D782018F0F00087E466 /* RenderViewController.swift */,
 				07039F9320175E8000879FFA /* Assets.xcassets */,
 				07039F9520175E8000879FFA /* LaunchScreen.storyboard */,
 				07039F9820175E8000879FFA /* Info.plist */,
@@ -827,7 +824,6 @@
 				079F1D732018EFC90087E466 /* GMUPoint.m in Sources */,
 				079F1D772018EFC90087E466 /* GQTPointQuadTreeChild.m in Sources */,
 				079F1D762018EFC90087E466 /* GQTPointQuadTree.m in Sources */,
-				079F1D792018F0F00087E466 /* RenderViewController.swift in Sources */,
 				079F1D742018EFC90087E466 /* GMULineString.m in Sources */,
 				079F1D632018EFC90087E466 /* GMUSimpleClusterAlgorithm.m in Sources */,
 				079F1D672018EFC90087E466 /* GMUStaticCluster.m in Sources */,
