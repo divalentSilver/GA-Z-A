@@ -81,15 +81,12 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Here we bind the asset with the cell.
         cell.representedAssetIdentifier = asset.localIdentifier
         // Request the image.
-        PHImageManager.default().requestImage(for: asset,
-                                              targetSize: cell.photo.frame.size,
-                                              contentMode: .aspectFill,
-                                              options: nil) { (image, _) in
-                                                // By the time the image is returned, the cell may has been recycled.
-                                                // We update the UI only when it is still on the screen.
-                                                if cell.representedAssetIdentifier == asset.localIdentifier {
-                                                    cell.photo.image = image
-                                                }
+        PHImageManager.default().requestImage(for: asset,targetSize: cell.photo.frame.size,                                        contentMode: .aspectFill, options: nil) { (image, _) in
+            // By the time the image is returned, the cell may has been recycled.
+            // We update the UI only when it is still on the screen.
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.photo.image = image
+            }
         }
         return cell
     }
@@ -115,22 +112,14 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
         */
-        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 5)
         
-        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 4)
+        //self.latestPhotoAssetsFetched = self.fetchPhotosDuring()
+        
+        //self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
         
  
-        
-        /*
-         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-         let url = URL(fileURLWithPath: path!)
-         geoJsonParser = GMUGeoJSONParser(url: url)
-         geoJsonParser.parse()
-         
-         renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-         
-         renderer.render()
-         */
     }
 
     
@@ -148,12 +137,38 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Add sortDescriptor so the lastest photos will be returned.
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         options.sortDescriptors = [sortDescriptor]
+        let result = PHAsset.fetchAssets(with: .image, options: options)
+        
+        print("~~~~~~")
+        for i in 0 ..< result.count {
+            let asset = result[i]
+            print("date = \(asset.creationDate!)")
+            print("location = \(asset.location!)")
+        }
         
         // Fetch the photos.
-        return PHAsset.fetchAssets(with: .image, options: options)
+        return result
         
     }
     
+    func fetchPhotosDuring() -> PHFetchResult<PHAsset> {
+        
+        
+        let options = PHFetchOptions()
+        //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
+        options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
+        let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
+        
+        for i in 0 ..< result.count {
+            let asset = result[i]
+
+            print("date = \(asset.creationDate!)")
+            print("location = \(asset.location!)")
+        }
+        
+        return result
+        
+    }
     
     func readJSONObject(object: [String: AnyObject]){
         
