@@ -6,6 +6,7 @@
 //  Copyright © 2018년 lollol. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 
@@ -28,11 +29,11 @@ class User{
 
 class Post{
     var pictures: [Picture] = []
-    var travelStartDate: [Int] = [] //0: year, 1: month, 2: day
-    var travelEndDate: [Int] = [] //0: year, 1: month, 2: day
+    var travelStartDate: Date?
+    var travelEndDate: Date?
     var travelName: String = ""
     
-    init(pictures: [Picture], travelStartDate: [Int], travelEndDate: [Int], travelName: String){
+    init(pictures: [Picture], travelStartDate: Date, travelEndDate: Date, travelName: String){
         self.pictures = pictures
         self.travelStartDate = travelStartDate
         self.travelEndDate = travelEndDate
@@ -42,12 +43,16 @@ class Post{
 
 class Picture{
     var comment: String = ""
-    let picDate: Date! //사진에서 정보 가져올 것임
-    let picLocation: [Double] = [] //사진에서 정보 가져올 것임
+    let picDate: Date? //사진에서 정보 가져올 것임
+    let picLocation: CLLocationCoordinate2D? //사진에서 정보 가져올 것임
+    let picImage: UIImage? //일단은 Asset에서 가져올 것임
     var favoriteButtonState: Bool = false
-    var picData: UIImage!
+    //2018-01-28 06:37:00 +0000
     
-    init() {
+    init(picDate: Date, picLocation: CLLocationCoordinate2D, picImage: UIImage){
+        self.picDate = picDate
+        self.picLocation = picLocation
+        self.picImage = picImage
     }
     
     /*

@@ -5,7 +5,7 @@
 //  Created by cscoi044 on 2018. 1. 17..
 //  Copyright © 2018년 lollol. All rights reserved.
 //
-
+import CoreLocation
 import UIKit
 
 @UIApplicationMain
@@ -18,21 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let picture1_1 = Picture()
-        picture1_1.picData = #imageLiteral(resourceName: "IMG_2119")
+    
+        let picture1_1 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.574832, 126.969185), picImage: #imageLiteral(resourceName: "IMG_2119"))
+        let picture2_1 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.574832, 126.969185), picImage: #imageLiteral(resourceName: "IMG_0997"))
+        let picture2_2 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.574832, 126.969185), picImage: #imageLiteral(resourceName: "IMG_1004"))
         
-        let post1 = Post(pictures: [picture1_1], travelStartDate: [2017, 11, 3], travelEndDate: [2017, 11, 3], travelName: "Hell1")
+        
+        
+        let post1 = Post(pictures: [picture1_1], travelStartDate: Date(), travelEndDate: Date(), travelName: "Busan")
+        let post2 = Post(pictures: [picture2_1, picture2_2], travelStartDate: Date(), travelEndDate: Date(), travelName: "Chuncheon")
+        
         posts.append(post1)
-        
-        let picture2_1 = Picture()
-        let picture2_2 = Picture()
-        picture2_1.picData = #imageLiteral(resourceName: "IMG_0997")
-        picture2_2.picData = #imageLiteral(resourceName: "IMG_1004")
-        
-        let post2 = Post(pictures: [picture2_1, picture2_2], travelStartDate: [2018, 1, 26], travelEndDate: [2018, 1, 26], travelName: "Hell2")
         posts.append(post2)
-
-        
         
         return true
     }
