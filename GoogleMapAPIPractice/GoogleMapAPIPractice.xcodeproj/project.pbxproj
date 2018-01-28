@@ -44,6 +44,7 @@
 		07A96EE2201C25D7007BEF01 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A96EE3201C25D7007BEF01 /* SwiftyJSON.framework */; };
 		07A96EE6201C65AF007BEF01 /* sample.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 07A96EE5201C65AF007BEF01 /* sample.geojson */; };
 		50A916BAE0115351FCCC3B5B /* Pods_GoogleMapAPIPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */; };
+		8C5A7772201DC5AD00C1451A /* DataSetExFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */; };
 		D525C0A6F5F7142676BC91C4 /* Pods_GoogleMapAPIPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */; };
 		DE249731B77ADE19019108EC /* Pods_GoogleMapAPIPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */; };
 /* End PBXBuildFile section */
@@ -204,6 +205,7 @@
 		2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E037B9C8BB47D810B3D08D0 /* Pods-GoogleMapAPIPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeTests/Pods-GoogleMapAPIPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8643C8226C64B8ACE9E543C1 /* Pods-GoogleMapAPIPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPractice/Pods-GoogleMapAPIPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSetExFile.swift; path = ../../Travel/Travel/DataSetExFile.swift; sourceTree = "<group>"; };
 		9716563C1695AC8873D090E9 /* Pods-GoogleMapAPIPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B693754A18206C3EE068364C /* Pods-GoogleMapAPIPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,7 @@
 				07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */,
 				07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */,
 				07039F8C20175E8000879FFA /* AppDelegate.swift */,
+				8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */,
 				07039F8E20175E8000879FFA /* ViewController.swift */,
 				07039F9020175E8000879FFA /* Main.storyboard */,
 				07039FBA201767CE00879FFA /* MapViewController.swift */,
@@ -841,6 +844,7 @@
 				079F1D6B2018EFC90087E466 /* GMUKMLParser.m in Sources */,
 				07A96EA5201B8128007BEF01 /* GeoJSONViewController.swift in Sources */,
 				079F1D712018EFC90087E466 /* GMUGroundOverlay.m in Sources */,
+				8C5A7772201DC5AD00C1451A /* DataSetExFile.swift in Sources */,
 				079F1D612018EFC90087E466 /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				079F1D6A2018EFC90087E466 /* GMUHeatmapTileLayer.m in Sources */,
 				079F1D6C2018EFC90087E466 /* GMUGeometryRenderer.m in Sources */,
@@ -1019,7 +1023,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = practice.GoogleMapAPIPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kaeunrhee/Documents/GitHub/GAZZA/GoogleMapAPIPractice/Google-Maps-iOS-Utils/GoogleMapAPIPractice-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cscoi044/Desktop/GAZZA/GoogleMapAPIPractice/Google-Maps-iOS-Utils/GoogleMapAPIPractice-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1035,7 +1039,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = practice.GoogleMapAPIPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kaeunrhee/Documents/GitHub/GAZZA/GoogleMapAPIPractice/Google-Maps-iOS-Utils/GoogleMapAPIPractice-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/cscoi044/Desktop/GAZZA/GoogleMapAPIPractice/Google-Maps-iOS-Utils/GoogleMapAPIPractice-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

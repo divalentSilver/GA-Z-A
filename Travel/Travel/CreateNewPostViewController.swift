@@ -45,17 +45,15 @@ class CreateNewPostViewController: UITableViewController {
         }
         else if indexPath.row == 1{
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath)
-            
             return dateCell
         }
         else if indexPath.row == 2{
             let pictureSelectionCell = tableView.dequeueReusableCell(withIdentifier: "PictureSelectionCell", for: indexPath)
-            //pictureSelectionCell.textLabel?.text = "사진 선택하기"
+
             return pictureSelectionCell
         }
         else{
             let tagCell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
-            
             return tagCell
         }
 

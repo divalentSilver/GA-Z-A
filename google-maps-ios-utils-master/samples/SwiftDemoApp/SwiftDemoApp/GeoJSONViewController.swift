@@ -60,7 +60,7 @@ class GeoJSONViewController: UIViewController {
     }
     
     override func loadView() {
-        /*
+        
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -70,7 +70,7 @@ class GeoJSONViewController: UIViewController {
         let json = JSON(data! as Data)
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
-        */
+        
         
         //let asset =
         //let location = asset.location
