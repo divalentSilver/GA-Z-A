@@ -16,14 +16,18 @@
 import UIKit
 import GoogleMaps
 import SwiftyJSON
+import Photos
 
-
-class GeoJSONViewController: UIViewController {
+class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
   private var mapView: GMSMapView!
   private var renderer: GMUGeometryRenderer!
   private var geoJsonParser: GMUGeoJSONParser!
 
+    var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
         if GMSGeometryContainsLocation(point, path, true) {
             return true
@@ -31,6 +35,7 @@ class GeoJSONViewController: UIViewController {
             return false
         }
     }
+    
     
     func colorPolygon(path: GMSMutablePath){
         let polygon = GMSPolygon(path: path)
@@ -59,8 +64,47 @@ class GeoJSONViewController: UIViewController {
         }
     }
     
-    override func loadView() {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (latestPhotoAssetsFetched?.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
+        
+        // Get the asset. If nothing, return the cell.
+        guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
+            return cell
+        }
+        // Here we bind the asset with the cell.
+        cell.representedAssetIdentifier = asset.localIdentifier
+        // Request the image.
+        PHImageManager.default().requestImage(for: asset,
+                                              targetSize: cell.photo.frame.size,
+                                              contentMode: .aspectFill,
+                                              options: nil) { (image, _) in
+                                                // By the time the image is returned, the cell may has been recycled.
+                                                // We update the UI only when it is still on the screen.
+                                                if cell.representedAssetIdentifier == asset.localIdentifier {
+                                                    cell.photo.image = image
+                                                }
+        }
+        return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.collectionView.delegate = self
+        //self.collectionView.dataSource = self
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        
+        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -70,11 +114,11 @@ class GeoJSONViewController: UIViewController {
         let json = JSON(data! as Data)
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        */
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 5)
         
-        
-        //let asset =
-        //let location = asset.location
-        //let creationDate = asset.creationDate
+        //print(self.collectionView.frame)
+ 
         
         /*
          let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
@@ -87,6 +131,25 @@ class GeoJSONViewController: UIViewController {
          renderer.render()
          */
     }
+
+    
+    func fetchLatestPhotos(forCount count: Int?) -> PHFetchResult<PHAsset> {
+        
+        // Create fetch options.
+        let options = PHFetchOptions()
+        
+        // If count limit is specified.
+        if let count = count { options.fetchLimit = count }
+        
+        // Add sortDescriptor so the lastest photos will be returned.
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        options.sortDescriptors = [sortDescriptor]
+        
+        // Fetch the photos.
+        return PHAsset.fetchAssets(with: .image, options: options)
+        
+    }
+    
     
     func readJSONObject(object: [String: AnyObject]){
         
