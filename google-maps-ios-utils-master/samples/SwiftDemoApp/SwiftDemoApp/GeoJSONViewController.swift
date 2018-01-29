@@ -103,8 +103,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func loadView() {
         super.loadView()
         
-        
         /*
+        
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -117,7 +117,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         */
         self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 5)
         
-        //print(self.collectionView.frame)
+        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        
  
         
         /*
@@ -137,6 +138,9 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         // Create fetch options.
         let options = PHFetchOptions()
+        
+        //options.predicate = NSPredicate(format: "creationDate = %@", )
+        
         
         // If count limit is specified.
         if let count = count { options.fetchLimit = count }
