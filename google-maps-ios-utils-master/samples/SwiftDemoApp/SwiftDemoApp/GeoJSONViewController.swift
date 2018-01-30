@@ -114,10 +114,11 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         */
         
-        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 10)
+        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 10)
+        //var startDate =
         //self.latestPhotoAssetsFetched = self.fetchPhotosDuring()
         
-        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        //self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
         
  
     }
@@ -144,24 +145,34 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    func fetchPhotosDuring() -> PHFetchResult<PHAsset> {
+    func fetchPhotosDuring(startDate: Date, endDate: Date) -> PHFetchResult<PHAsset> {
         
         
         let options = PHFetchOptions()
         //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
         options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
         
+      
         
         /*
-         // Create the request
-         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Entry"];
-         // Build the predicate
-         NSPredicate *predicate = [NSPredicate predicateWithFormat: @"date >= %@ && date <= %@ ", fromDate, toDate];
-         request.predicate = predicate;
-         // Define sorting
-         NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-         request.sortDescriptors = @[sortDesc];
+        let df: DateFormatter = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let date : NSDate = df.date(from: "2016년 7월 3일 13시2분")!
+        print(date) // 결과: 2016-07-03 04:02:00
         */
+        
+        print(startDate)
+        print(endDate)
+        
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT") as! TimeZone // this line resolved me the issue of getting one day less than the selected date
+        options.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startDate as CVarArg, endDate as CVarArg)
+        
+        
         let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
         
         for i in 0 ..< result.count {
@@ -169,6 +180,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             print("date = \(asset.creationDate!)")
             print("location = \(asset.location!)")
         }
+ 
         
         return result
         
