@@ -16,17 +16,28 @@ class AddTableViewController: UITableViewController {
         
     }
     
+    
+    @IBOutlet var AddTableView: AddTableView!
+    
+    
     var cellExpanse: Bool = false
-    override func tableView(_tableView: UITableVIew, didSelectRowAt indexPath: IndexPath){
+    
+    func tableView(_tableView: AddTableView, didSelectRowAt indexPath: IndexPath){
         if indexPath.row == 1 {
             cellExpanse = !cellExpanse
-            addTableView.reloadRows(at: [ IndexPath(row: 1, section: 0)], with: .automatic)
+            tableView.reloadRows(at: [ IndexPath(row: 1, section: 0)], with: .automatic)
+        } else if indexPath.row == 2 {
+            cellExpanse = !cellExpanse
+            tableView.reloadRows(at: [ IndexPath(row: 2, section: 0)], with: .automatic)
         }
     }
     ///Cell 높이 설정=>높이 얼마로 할지???
-    override func tableView(_tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_tableView: AddTableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
-            return cellExpanse ? 375:230
+            return 230
+        }
+        else if indexPath.row == 2 {
+            return 230
         }
         return 230
     }
@@ -37,35 +48,14 @@ class AddTableViewController: UITableViewController {
         
     }
     
-    var cellExpanse: Bool = false
-    override func tableView(_tableView: UITableVIew, didSelectRowAt indexPath: IndexPath){
-        if indexPath.row == 2 {
-            cellExpanse = !cellExpanse
-            addTableView.reloadRows(at: [ IndexPath(row: 2, section: 0)], with: .automatic)
-        }
-    }
-    ///Cell 높이 설정=>높이 얼마로 할지???23->230으로 늘려야 함
-    override func tableView(_tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 2 {
-            return cellExpanse ? 375:230
-        }
-        return 230
-    }
-    
+
 /////CellSizing 4th line: Select
     @IBAction func SelectPicture(_ sender: Any) {
     }
-    ////////////
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,15 +75,35 @@ class AddTableViewController: UITableViewController {
         return 4
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+            
+            
+            
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FromCell", for: indexPath)
+            
+            
+            
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ToCell", for: indexPath)
+            
+            
+            
+            return cell
+        } else { //indexPath.row == 3
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PictureCell", for: indexPath)
+            
+            
+            
+            return cell
+        }
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

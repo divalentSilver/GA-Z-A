@@ -47,6 +47,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>{사진 앨범 접근 권한 허용}</string>
+	<string>사진 앨범 접근 권한 허용</string>
 </dict>
 </plist>

@@ -103,7 +103,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func loadView() {
         super.loadView()
         
-        
+        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -112,10 +112,12 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
         
-        //findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        */
         
         let count = 4
         self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
+        /*
         for i in 0..<self.latestPhotoAssetsFetched!.count{
             let asset = self.latestPhotoAssetsFetched![i]
             //print("date = \(asset.creationDate!)")
@@ -123,7 +125,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             print("location = \(asset.location!.coordinate.longitude)")
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
-        
+        */
         /*
          let df: DateFormatter = DateFormatter()
          df.dateFormat = "yyyy-MM-dd HH:mm:ss"
