@@ -16,14 +16,21 @@
 import UIKit
 import GoogleMaps
 import SwiftyJSON
+import Photos
 
+class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-class GeoJSONViewController: UIViewController {
-  private var mapView: GMSMapView!
+/////AddButton 추가
+    @IBOutlet weak var AddButton: UIButton!
+    
+    private var mapView: GMSMapView!
   private var renderer: GMUGeometryRenderer!
   private var geoJsonParser: GMUGeoJSONParser!
 
+    var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
         if GMSGeometryContainsLocation(point, path, true) {
             return true
@@ -31,6 +38,7 @@ class GeoJSONViewController: UIViewController {
             return false
         }
     }
+    
     
     func colorPolygon(path: GMSMutablePath){
         let polygon = GMSPolygon(path: path)
@@ -59,8 +67,43 @@ class GeoJSONViewController: UIViewController {
         }
     }
     
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (latestPhotoAssetsFetched?.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
+        
+        // Get the asset. If nothing, return the cell.
+        guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
+            return cell
+        }
+        // Here we bind the asset with the cell.
+        cell.representedAssetIdentifier = asset.localIdentifier
+        // Request the image.
+        PHImageManager.default().requestImage(for: asset,targetSize: cell.photo.frame.size,                                        contentMode: .aspectFill, options: nil) { (image, _) in
+            // By the time the image is returned, the cell may has been recycled.
+            // We update the UI only when it is still on the screen.
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.photo.image = image
+            }
+        }
+        return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.collectionView.delegate = self
+        //self.collectionView.dataSource = self
+    }
+    
     override func loadView() {
-        /*
+        super.loadView()
+        
+        
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -69,23 +112,76 @@ class GeoJSONViewController: UIViewController {
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
         
-        findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
-        */
+        //findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
         
-        //let asset =
-        //let location = asset.location
-        //let creationDate = asset.creationDate
+        let count = 4
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
+        for i in 0..<self.latestPhotoAssetsFetched!.count{
+            let asset = self.latestPhotoAssetsFetched![i]
+            //print("date = \(asset.creationDate!)")
+            print("location = \(asset.location!.coordinate.latitude)")
+            print("location = \(asset.location!.coordinate.longitude)")
+            findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
+        }
         
         /*
-         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-         let url = URL(fileURLWithPath: path!)
-         geoJsonParser = GMUGeoJSONParser(url: url)
-         geoJsonParser.parse()
-         
-         renderer = GMUGeometryRenderer(map: mapView, geometries: geoJsonParser.features)
-         
-         renderer.render()
-         */
+         let df: DateFormatter = DateFormatter()
+         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //df.timeZone = NSTimeZone(name: "GMT") as! TimeZone
+        //this line resolved me the issue of getting one day less than the selected date
+        
+        let startDate: Date = df.date(from: "2018-01-30 02:34:13")!
+        let endDate: Date = df.date(from: "2018-01-30 02:34:37")!
+        
+        print("\(startDate) ~ \(endDate)")
+        self.latestPhotoAssetsFetched = self.fetchPhotosDuring(startDate: startDate, endDate: endDate)
+        */
+        
+        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        
+ 
+    }
+
+    
+    func fetchLatestPhotos(forCount count: Int?) -> PHFetchResult<PHAsset> {
+        
+        // Create fetch options.
+        let options = PHFetchOptions()
+
+        // If count limit is specified.
+        if let count = count { options.fetchLimit = count }
+        
+        // Add sortDescriptor so the lastest photos will be returned.
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        options.sortDescriptors = [sortDescriptor]
+        let result = PHAsset.fetchAssets(with: .image, options: options)
+        
+        // Fetch the photos.
+        return result
+        
+    }
+    
+    func fetchPhotosDuring(startDate: Date, endDate: Date) -> PHFetchResult<PHAsset> {
+        
+        let options = PHFetchOptions()
+        //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
+        //options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
+        options.predicate = NSPredicate(format: "%@ <= date AND date <= %@", startDate as NSDate, endDate as NSDate)
+
+        
+        
+        let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
+        
+        /*
+        for i in 0 ..< result.count {
+            let asset = result[i]
+            print("date = \(asset.creationDate!)")
+            print("location = \(asset.location!)")
+        }
+        */
+        
+        return result
+        
     }
     
     func readJSONObject(object: [String: AnyObject]){
