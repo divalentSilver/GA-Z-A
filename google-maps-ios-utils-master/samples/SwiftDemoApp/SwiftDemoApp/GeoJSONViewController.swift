@@ -101,7 +101,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.loadView()
         
         
-        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -110,15 +109,32 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
         
-        findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        //findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
         
+        let count = 4
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
+        for i in 0..<self.latestPhotoAssetsFetched!.count{
+            let asset = self.latestPhotoAssetsFetched![i]
+            //print("date = \(asset.creationDate!)")
+            print("location = \(asset.location!.coordinate.latitude)")
+            print("location = \(asset.location!.coordinate.longitude)")
+            findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
+        }
+        
+        /*
+         let df: DateFormatter = DateFormatter()
+         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //df.timeZone = NSTimeZone(name: "GMT") as! TimeZone
+        //this line resolved me the issue of getting one day less than the selected date
+        
+        let startDate: Date = df.date(from: "2018-01-30 02:34:13")!
+        let endDate: Date = df.date(from: "2018-01-30 02:34:37")!
+        
+        print("\(startDate) ~ \(endDate)")
+        self.latestPhotoAssetsFetched = self.fetchPhotosDuring(startDate: startDate, endDate: endDate)
         */
         
-        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 10)
-        //var startDate =
-        //self.latestPhotoAssetsFetched = self.fetchPhotosDuring()
-        
-        //self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
         
  
     }
@@ -128,10 +144,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         // Create fetch options.
         let options = PHFetchOptions()
-        
-        //options.predicate = NSPredicate(format: "creationDate = %@", )
-        
-        
+
         // If count limit is specified.
         if let count = count { options.fetchLimit = count }
         
@@ -147,40 +160,22 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func fetchPhotosDuring(startDate: Date, endDate: Date) -> PHFetchResult<PHAsset> {
         
-        
         let options = PHFetchOptions()
         //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
-        options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
-        
-      
-        
-        /*
-        let df: DateFormatter = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let date : NSDate = df.date(from: "2016년 7월 3일 13시2분")!
-        print(date) // 결과: 2016-07-03 04:02:00
-        */
-        
-        print(startDate)
-        print(endDate)
-        
-        
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.timeZone = NSTimeZone(name: "GMT") as! TimeZone // this line resolved me the issue of getting one day less than the selected date
-        options.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startDate as CVarArg, endDate as CVarArg)
+        //options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
+        options.predicate = NSPredicate(format: "%@ <= date AND date <= %@", startDate as NSDate, endDate as NSDate)
+
         
         
         let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
         
+        /*
         for i in 0 ..< result.count {
             let asset = result[i]
             print("date = \(asset.creationDate!)")
             print("location = \(asset.location!)")
         }
- 
+        */
         
         return result
         
