@@ -19,8 +19,11 @@ import SwiftyJSON
 import Photos
 
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+/////AddButton 추가
+    @IBOutlet weak var AddButton: UIButton!
     
-  private var mapView: GMSMapView!
+    private var mapView: GMSMapView!
   private var renderer: GMUGeometryRenderer!
   private var geoJsonParser: GMUGeoJSONParser!
 
