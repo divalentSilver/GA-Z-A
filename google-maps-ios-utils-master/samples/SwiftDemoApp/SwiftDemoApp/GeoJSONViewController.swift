@@ -100,8 +100,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func loadView() {
         super.loadView()
         
-        /*
         
+        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         self.view = mapView
@@ -111,13 +111,13 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let json = JSON(data! as Data)
         
         findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
+        
         */
         
-        
-        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 4)
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 10)
         //self.latestPhotoAssetsFetched = self.fetchPhotosDuring()
         
-        //self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
         
  
     }
@@ -139,13 +139,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         options.sortDescriptors = [sortDescriptor]
         let result = PHAsset.fetchAssets(with: .image, options: options)
         
-        print("~~~~~~")
-        for i in 0 ..< result.count {
-            let asset = result[i]
-            print("date = \(asset.creationDate!)")
-            print("location = \(asset.location!)")
-        }
-        
         // Fetch the photos.
         return result
         
@@ -157,11 +150,22 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let options = PHFetchOptions()
         //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
         options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
+        
+        
+        /*
+         // Create the request
+         NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Entry"];
+         // Build the predicate
+         NSPredicate *predicate = [NSPredicate predicateWithFormat: @"date >= %@ && date <= %@ ", fromDate, toDate];
+         request.predicate = predicate;
+         // Define sorting
+         NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+         request.sortDescriptors = @[sortDesc];
+        */
         let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
         
         for i in 0 ..< result.count {
             let asset = result[i]
-
             print("date = \(asset.creationDate!)")
             print("location = \(asset.location!)")
         }
