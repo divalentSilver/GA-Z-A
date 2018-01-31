@@ -50,6 +50,8 @@
 		8C5340032020645800169DEA /* ToTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5340022020645800169DEA /* ToTableViewCell.swift */; };
 		8C5340052020646A00169DEA /* SelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5340042020646A00169DEA /* SelectTableViewCell.swift */; };
 		8C5A7772201DC5AD00C1451A /* DataSetExFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */; };
+		8C632BAC2021ACCE00C278D4 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */; };
+		8C632BAD2021ACCE00C278D4 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CD76AC0120203B5000E91899 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76AC0020203B5000E91899 /* AddTableViewController.swift */; };
 		CD76AC052020496E00E91899 /* SelectPictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76AC042020496E00E91899 /* SelectPictureCollectionViewController.swift */; };
 		CD76AC4D20218FC700E91899 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76AC4C20218FC700E91899 /* StoryTableViewController.swift */; };
@@ -83,6 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8C632BAD2021ACCE00C278D4 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,7 +174,6 @@
 		079F1D5F2018EFC90087E466 /* GQTBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQTBounds.h; sourceTree = "<group>"; };
 		07A96EA2201B80DD007BEF01 /* HangJeongDong_ver2017xxxx_for update.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HangJeongDong_ver2017xxxx_for update.geojson"; sourceTree = SOURCE_ROOT; };
 		07A96EA4201B8127007BEF01 /* GeoJSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoJSONViewController.swift; path = "../../google-maps-ios-utils-master/samples/SwiftDemoApp/SwiftDemoApp/GeoJSONViewController.swift"; sourceTree = "<group>"; };
-		07A96EE3201C25D7007BEF01 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07A96EE5201C65AF007BEF01 /* sample.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.geojson; sourceTree = SOURCE_ROOT; };
 		132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16660983B3DBC1C2A07ADD4D /* Pods-GoogleMapAPIPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeTests/Pods-GoogleMapAPIPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		8C5340022020645800169DEA /* ToTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTableViewCell.swift; sourceTree = "<group>"; };
 		8C5340042020646A00169DEA /* SelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableViewCell.swift; sourceTree = "<group>"; };
 		8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSetExFile.swift; path = ../../Travel/Travel/DataSetExFile.swift; sourceTree = "<group>"; };
+		8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = GoogleMapAPIPractice/SwiftyJSON.framework; sourceTree = "<group>"; };
 		9716563C1695AC8873D090E9 /* Pods-GoogleMapAPIPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B693754A18206C3EE068364C /* Pods-GoogleMapAPIPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CD76AC0020203B5000E91899 /* AddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C632BAC2021ACCE00C278D4 /* SwiftyJSON.framework in Frameworks */,
 				DE249731B77ADE19019108EC /* Pods_GoogleMapAPIPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +230,7 @@
 		07039F8020175E8000879FFA = {
 			isa = PBXGroup;
 			children = (
+				8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */,
 				079F1D182018EFC90087E466 /* Google-Maps-iOS-Utils */,
 				07039F8B20175E8000879FFA /* GoogleMapAPIPractice */,
 				07039FA020175E8100879FFA /* GoogleMapAPIPracticeTests */,
@@ -423,7 +428,6 @@
 		73CD6C580F21BA212DD5E2ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07A96EE3201C25D7007BEF01 /* SwiftyJSON.framework */,
 				2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */,
 				EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */,
 				132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */,
@@ -956,6 +960,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/GoogleMapAPIPractice",
 				);
 				INFOPLIST_FILE = GoogleMapAPIPractice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -978,6 +983,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/GoogleMapAPIPractice",
 				);
 				INFOPLIST_FILE = GoogleMapAPIPractice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
