@@ -48,6 +48,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         polygon.map = mapView
     }
     
+    /*
     func findPolygonIncludingPoint(lat: Double, long: Double, json: JSON){
         let point = CLLocationCoordinate2DMake(lat, long)
         let admDistricts = json["features"]//행정구역들의 배열
@@ -66,7 +67,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
     }
-    
+    */
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -103,6 +104,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func loadView() {
         super.loadView()
         
+
         /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)

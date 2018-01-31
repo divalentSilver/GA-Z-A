@@ -7,7 +7,6 @@ target 'GoogleMapAPIPractice' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'SwiftyJSON'
   
   # Pods for GoogleMapAPIPractice
 
