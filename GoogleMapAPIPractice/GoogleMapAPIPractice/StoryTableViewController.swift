@@ -69,7 +69,7 @@ class StoryTableViewController: UITableViewController {
 
         return (latestPhotoAssetsFetched?.count)!
     }
-
+/*
 /////////////스토리 내 각 이미지+메모 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryTableView
@@ -82,7 +82,7 @@ class StoryTableViewController: UITableViewController {
         
         return cell
     }
-    
+*/
 
     /*
     // Override to support conditional editing of the table view.

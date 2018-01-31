@@ -158,9 +158,6 @@
                             <outlet property="delegate" destination="auV-Sw-TPL" id="U6w-Ch-kIO"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="StoryMemoTextField" destination="00W-X6-HyJ" id="fA4-IR-Mon"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g3-Yx-htE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

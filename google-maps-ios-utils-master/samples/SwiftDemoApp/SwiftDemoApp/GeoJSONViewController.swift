@@ -18,6 +18,19 @@ import GoogleMaps
 import SwiftyJSON
 import Photos
 
+/*
+extension NSDate{
+    convenience
+    init(dateString: String){
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "yyy-MM-dd"
+        dateStringFormatter.locale = Locale(CFLocaleIdentifier: "en_US_POSIX")
+        let d = dateStringFormatter.date(from: dateString)!
+        self.init(timeInterval: 0, sinceDate:d)
+    }
+}
+ */
+
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 /////AddButton 추가
@@ -117,7 +130,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         */
         
         let count = 4
-        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
+        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
+        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: <#T##NSDate#>, endDate: <#T##NSDate#>)
         /*
         for i in 0..<self.latestPhotoAssetsFetched!.count{
             let asset = self.latestPhotoAssetsFetched![i]
@@ -127,6 +141,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
         */
+        
         /*
          let df: DateFormatter = DateFormatter()
          df.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -137,7 +152,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let endDate: Date = df.date(from: "2018-01-30 02:34:37")!
         
         print("\(startDate) ~ \(endDate)")
-        self.latestPhotoAssetsFetched = self.fetchPhotosDuring(startDate: startDate, endDate: endDate)
+        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate, endDate: endDate)
         */
         
         self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
@@ -163,27 +178,44 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return result
         
     }
-    
-    func fetchPhotosDuring(startDate: Date, endDate: Date) -> PHFetchResult<PHAsset> {
+    var images: [UIImage] = []
+    func fetchPhotosInRange(startDate: NSDate, endDate: NSDate) -> PHFetchResult<PHAsset> {
         
-        let options = PHFetchOptions()
-        //options.predicate = NSPredicate(format: "mediaType = %d",PHAssetMediaType.image.rawValue)
-        //options.sortDescriptors = [ NSSortDescriptor(key: "creationDate", ascending: true) ]
-        options.predicate = NSPredicate(format: "%@ <= date AND date <= %@", startDate as NSDate, endDate as NSDate)
-
+        let imgManager = PHImageManager.default()
         
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = true
+        requestOptions.isNetworkAccessAllowed = true
         
-        let result : PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.predicate = NSPredicate(format: "creationDate >= %@ AND creationDate <= %@", startDate, endDate)
         
-        /*
-        for i in 0 ..< result.count {
-            let asset = result[i]
-            print("date = \(asset.creationDate!)")
-            print("location = \(asset.location!)")
+        images = []
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
+        if fetchResult.count > 0{
+            for index in 0..<fetchResult.count {
+                let asset = fetchResult.object(at: index)
+                imgManager.requestImageData(for: asset, options: requestOptions, resultHandler: {(imageData: Data?, dataUTI: String?, orientation: UIImageOrientation, info: [AnyHashable: Any]?) -> Void in
+                    if let imageData = imageData {
+                        if let image = UIImage(data: imageData) {
+                            self.images += [image]
+                        }
+                    }
+                    if self.images.count == fetchResult.count {
+                        //Do something once all the images have been fetched
+                        print(self.images)
+                    }
+                })
+            }
         }
-        */
-        
-        return result
+        /*
+         for i in 0 ..< result.count {
+         let asset = result[i]
+         print("date = \(asset.creationDate!)")
+         print("location = \(asset.location!)")
+         }
+         */
+        return fetchResult
         
     }
     
