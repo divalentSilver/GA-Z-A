@@ -52,6 +52,24 @@ class AddTableViewController: UITableViewController {
 /////CellSizing 4th line: Select
     @IBAction func SelectPicture(_ sender: Any) {
     }
+/////이미지 추가
+//    let attachment = NSTextAttachment()
+//
+//    attachment.image = UIImage(named: "confirm")
+//
+//    let attachmentString = NSAttributedString(attachment: attachment)
+//
+//    let contentString = NSMutableAttributedString(string: originalString)
+//
+//    contentString.append(attachmentString)
+//
+//    contentsLabel.attributedText = contentString
+//
+//    
+//
+//    출처: http://azsha.tistory.com/89 [Azsha's Forge]
+    
+    
     
     
     override func viewDidLoad() {

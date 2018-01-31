@@ -13,7 +13,30 @@ class StoryTableViewController: UITableViewController {
 
     
     var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
+
+////////
+//작성 내용 저장하기
+//https://soooprmx.com/archives/1984
+//rootviewcontroller 불러오기는 아래
+//    let viewController: UIViewController = UIApplication.sharedApplication().delegate!.window!!.rootViewController!
+//그런데 rootviewcontroller.h가 필요하다고 뭐지
+//거기에다 아래 추가
+//    #import <UIKit/UIKit.h>
+//
+//    @interface RootViewController : UIViewController
+//    {
+//    NSString *dataFilePath;
+//    }
+//    @property (nonatomic, strong) IBOutlet UITextView *memo;
+//    -(IBAction)saveData:(id)sender;
+//    @end
+    //*memo가 인터페이스 빌더에서 추가한 텍스트뷰의 아울렛: 뭐가 텍스트뷰? 라벨? 텍스트필드?
+//    출처: http://devsc.tistory.com/19 [You Know Programing?]
+//
     
+    
+    
+    @IBOutlet weak var StoryMemoTextField: UITextField!
     @IBOutlet weak var StoryImageView: UIImageView!
     @IBOutlet weak var StoryDateLabel: UILabel!
     @IBOutlet weak var StoryPlaceLabel: UILabel!
