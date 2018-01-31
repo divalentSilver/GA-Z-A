@@ -1,61 +1,28 @@
 //
-//  AddTableViewController.swift
+//  StoryTableViewController.swift
 //  GoogleMapAPIPractice
 //
-//  Created by cscoi014 on 2018. 1. 30..
+//  Created by cscoi014 on 2018. 1. 31..
 //  Copyright © 2018년 KaEun Rhee. All rights reserved.
 //
 
 import UIKit
 
-class AddTableViewController: UITableViewController {
-    
-/////CellSizing 2nd line: From
-    ///Cell 선택 이벤트
-    @IBAction func FromPicker(_ sender: Any) {
-        
-    }
-    
-    
-    @IBOutlet var AddTableView: AddTableView!
-    
-    
-    var cellExpanse: Bool = false
-    
-    func tableView(_tableView: AddTableView, didSelectRowAt indexPath: IndexPath){
-        if indexPath.row == 1 {
-            cellExpanse = !cellExpanse
-            tableView.reloadRows(at: [ IndexPath(row: 1, section: 0)], with: .automatic)
-        } else if indexPath.row == 2 {
-            cellExpanse = !cellExpanse
-            tableView.reloadRows(at: [ IndexPath(row: 2, section: 0)], with: .automatic)
-        }
-    }
-    ///Cell 높이 설정=>높이 얼마로 할지???
-    func tableView(_tableView: AddTableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return 230
-        }
-        else if indexPath.row == 2 {
-            return 230
-        }
-        return 230
-    }
-    
-/////CellSizing 3rd line: To
-    ///Cell 선택 이벤트
-    @IBAction func ToPicker(_ sender: Any) {
-        
-    }
-    
+class StoryTableViewController: UITableViewController {
 
-/////CellSizing 4th line: Select
-    @IBAction func SelectPicture(_ sender: Any) {
-    }
-    
-    
+    @IBOutlet weak var StoryImageView: UIImageView!
+    @IBOutlet weak var StoryDateLabel: UILabel!
+    @IBOutlet weak var StoryPlaceLabel: UILabel!
+    @IBOutlet weak var StoryMemoLabel: UILabel!
+/////StoryMemoLabel이 Edit하면 사용자가 작성한 내용으로 변경되어야 함
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,38 +39,21 @@ class AddTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return .count///////////////이미지 개수 카운트 해서 row 생성
     }
 
-    
+/////////////스토리 내 각 이미지+메모 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FromCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ToCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else { //indexPath.row == 3
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PictureCell", for: indexPath)
-            
-            
-            
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath)
+
+        cell.StoryImageView?.///////////데이터셋 각 이미지
+        cell.StoryDateLabel?.
+        cell.StoryPlaceLabel?.
+        cell.StoryMemoLabel?.
+        
+        return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
