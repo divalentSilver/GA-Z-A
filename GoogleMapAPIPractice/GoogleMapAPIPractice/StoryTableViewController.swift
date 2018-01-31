@@ -39,21 +39,22 @@ class StoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return .count///////////////이미지 개수 카운트 해서 row 생성
+        return 3
+        //return .count///////////////이미지 개수 카운트 해서 row 생성
     }
 
 /////////////스토리 내 각 이미지+메모 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath)
 
-        cell.StoryImageView?.///////////데이터셋 각 이미지
-        cell.StoryDateLabel?.
-        cell.StoryPlaceLabel?.
-        cell.StoryMemoLabel?.
+        //cell.StoryImageView?.///////////데이터셋 각 이미지
+        //cell.StoryDateLabel?.
+        //cell.StoryPlaceLabel?.
+        //cell.StoryMemoLabel?.
         
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

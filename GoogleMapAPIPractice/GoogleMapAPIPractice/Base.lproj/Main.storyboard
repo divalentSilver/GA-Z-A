@@ -151,12 +151,6 @@
                             <outlet property="delegate" destination="auV-Sw-TPL" id="U6w-Ch-kIO"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="StoryDateLabel" destination="aZm-UM-OEG" id="agv-Jh-ndm"/>
-                        <outlet property="StoryImageView" destination="7zZ-I9-LNT" id="vCx-Tb-rb9"/>
-                        <outlet property="StoryMemoLabel" destination="sSb-QE-rGr" id="qYQ-bK-P7X"/>
-                        <outlet property="StoryPlaceLabel" destination="zGS-bD-UmU" id="eKV-24-VG8"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g3-Yx-htE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
