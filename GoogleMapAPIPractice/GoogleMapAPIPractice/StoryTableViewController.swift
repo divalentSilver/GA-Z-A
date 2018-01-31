@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Photos
 
 class StoryTableViewController: UITableViewController {
 
+    
+    var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
+    
     @IBOutlet weak var StoryImageView: UIImageView!
     @IBOutlet weak var StoryDateLabel: UILabel!
     @IBOutlet weak var StoryPlaceLabel: UILabel!
@@ -33,24 +37,25 @@ class StoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
-        //return .count///////////////이미지 개수 카운트 해서 row 생성
+
+        return (latestPhotoAssetsFetched?.count)!
     }
 
 /////////////스토리 내 각 이미지+메모 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryTableView
 
-        //cell.StoryImageView?.///////////데이터셋 각 이미지
-        //cell.StoryDateLabel?.
-        //cell.StoryPlaceLabel?.
-        //cell.StoryMemoLabel?.
+        cell.StoryImageView?.UIImage = latestPhotoAssetsFetched[indexPath.row]
+        ///////////데이터셋 각 이미지
+        //cell.StoryDateLabel?.text = PHAsset.
+        //cell.StoryPlaceLabel?.text = PHAsset.
+        //cell.StoryMemoLabel?.text = PHAsset.
         
         return cell
     }

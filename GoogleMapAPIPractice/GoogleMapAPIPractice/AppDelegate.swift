@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-
+import Photos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var posts: [Post] = []
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyCSMb43WaYGG1PqFr2h_wIH8wtL86vPwcQ")
+        
         
         
         let picture1_1 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.574832, 126.969185), picImage: #imageLiteral(resourceName: "IMG_2119"))//2018-01-26

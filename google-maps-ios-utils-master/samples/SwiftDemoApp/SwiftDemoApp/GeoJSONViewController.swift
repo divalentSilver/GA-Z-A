@@ -24,8 +24,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var AddButton: UIButton!
     
     private var mapView: GMSMapView!
-  private var renderer: GMUGeometryRenderer!
-  private var geoJsonParser: GMUGeoJSONParser!
+    private var renderer: GMUGeometryRenderer!
+    private var geoJsonParser: GMUGeoJSONParser!
 
     var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
 
@@ -63,6 +63,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                     colorPolygon(path: path)
                     return
                 }
+                
             }
         }
     }
