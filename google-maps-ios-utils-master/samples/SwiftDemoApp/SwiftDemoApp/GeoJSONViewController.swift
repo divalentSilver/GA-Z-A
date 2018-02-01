@@ -86,6 +86,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return dateFromString!
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (latestPhotoAssetsFetched?.count)!
     }
@@ -119,6 +120,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     fileprivate func setupMapView() {
+        /*
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
         mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 20, width: 375, height: 647), camera: camera)
         self.view.addSubview(mapView)
@@ -127,7 +129,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
-        
+ 
         
         var startDate = stringToDate(stringDate: "2018-01-22")
         var endDate = stringToDate(stringDate: "2018-02-01")
@@ -143,8 +145,10 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
         
-        
+        */
+        self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
         self.view.bringSubview(toFront: self.collectionView)
+ 
     }
     
     override func loadView() {
