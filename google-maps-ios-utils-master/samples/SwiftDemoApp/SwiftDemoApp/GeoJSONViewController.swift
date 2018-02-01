@@ -18,24 +18,13 @@ import GoogleMaps
 import SwiftyJSON
 import Photos
 
-/*
-extension NSDate{
-    convenience
-    init(dateString: String){
-        let dateStringFormatter = DateFormatter()
-        dateStringFormatter.dateFormat = "yyy-MM-dd"
-        dateStringFormatter.locale = CFLocale(CFLocaleIdentifier: "en_US_POSIX")
-        let d = dateStringFormatter.date(from: dateString)!
-        self.init(timeInterval: 0, sinceDate:d)
-    }
-}
-*/
-
 
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 /////AddButton 추가
     @IBOutlet weak var AddButton: UIButton!
+    
+    @IBOutlet weak var mapView: UIView!
     
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
@@ -82,7 +71,22 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    
+    func stringToDate(stringDate: String) -> Date{
+        let dateString = stringDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        // The below line is optional, as NSDate uses the GMT +0 timezone by default
+        // The output day may be slightly off due your timezone
+        // This will align it with the NSDate timezone default GMT + 0
+        // Keep in mind users of your app all have different timezones and this will make the date use GMT+0 timezone instead of a users local one
+        
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
+        
+        let dateFromString = dateFormatter.date(from: dateString)
+        print(dateFromString)
+        return dateFromString!
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (latestPhotoAssetsFetched?.count)!
@@ -118,32 +122,16 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func loadView() {
         super.loadView()
         
-        /*
-        let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        self.view = mapView
+         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
+         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+         self.view = mapView
+         
+         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
+         let data = NSData(contentsOfFile: path!)
+         let json = JSON(data! as Data)
         
-        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-        let data = NSData(contentsOfFile: path!)
-        let json = JSON(data! as Data)
-        */
         
-        func stringToDate(stringDate: String) -> Date{
-            let dateString = stringDate
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            
-            // The below line is optional, as NSDate uses the GMT +0 timezone by default
-            // The output day may be slightly off due your timezone
-            // This will align it with the NSDate timezone default GMT + 0
-            // Keep in mind users of your app all have different timezones and this will make the date use GMT+0 timezone instead of a users local one
-            
-            dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
-            
-            let dateFromString = dateFormatter.date(from: dateString)
-            print(dateFromString)
-            return dateFromString!
-        }
+        
         
         
         var startDate = stringToDate(stringDate: "2018-01-21")
@@ -161,7 +149,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         */
         
-        self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
+        self.view.bringSubview(toFront: self.collectionView)
         
  
     }
