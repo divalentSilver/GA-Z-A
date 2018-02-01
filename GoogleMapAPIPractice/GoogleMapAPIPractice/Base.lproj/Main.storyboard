@@ -65,19 +65,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="V5R-Cq-Hw1"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuW-gy-eFJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVW-2G-O8L">
-                                <rect key="frame" x="118" y="272" width="152" height="161"/>
+                                <rect key="frame" x="111" y="253" width="152" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="wu3-wc-I4U" kind="presentation" id="3s2-gP-Gvx"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuW-gy-eFJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nuW-gy-eFJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6Jl-8S-PAO"/>
                             <constraint firstItem="wkT-5H-h9V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HPr-52-qsS"/>
@@ -92,7 +93,7 @@
                     <navigationItem key="navigationItem" id="6rX-Wh-yFg"/>
                     <connections>
                         <outlet property="collectionView" destination="wkT-5H-h9V" id="j7B-hJ-HpF"/>
-                        <outlet property="mapView" destination="nuW-gy-eFJ" id="ufQ-Eb-q3G"/>
+                        <outlet property="uiMapView" destination="nuW-gy-eFJ" id="jkk-RK-AJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

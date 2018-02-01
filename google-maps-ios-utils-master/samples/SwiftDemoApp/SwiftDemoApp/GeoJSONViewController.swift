@@ -22,9 +22,9 @@ import Photos
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 /////AddButton 추가
-    @IBOutlet weak var AddButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
-    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var uiMapView: UIView!
     
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
@@ -82,9 +82,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Keep in mind users of your app all have different timezones and this will make the date use GMT+0 timezone instead of a users local one
         
         dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
-        
         let dateFromString = dateFormatter.date(from: dateString)
-        print(dateFromString)
         return dateFromString!
     }
     
@@ -115,31 +113,28 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMapView()
         //self.collectionView.delegate = self
         //self.collectionView.dataSource = self
     }
     
-    override func loadView() {
-        super.loadView()
-        
-         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
-         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-         self.view = mapView
-         
-         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-         let data = NSData(contentsOfFile: path!)
-         let json = JSON(data! as Data)
+    fileprivate func setupMapView() {
+        let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
+        mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 20, width: 375, height: 647), camera: camera)
+        self.view.addSubview(mapView)
         
         
+        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
+        let data = NSData(contentsOfFile: path!)
+        let json = JSON(data! as Data)
         
         
-        
-        var startDate = stringToDate(stringDate: "2018-01-21")
+        var startDate = stringToDate(stringDate: "2018-01-22")
         var endDate = stringToDate(stringDate: "2018-02-01")
-        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 19)
+        
         self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
         
-        /*
+        
         for i in 0..<self.latestPhotoAssetsFetched!.count{
             let asset = self.latestPhotoAssetsFetched![i]
             //print("date = \(asset.creationDate!)")
@@ -147,11 +142,13 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             print("location = \(asset.location!.coordinate.longitude)")
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
-        */
+        
         
         self.view.bringSubview(toFront: self.collectionView)
-        
- 
+    }
+    
+    override func loadView() {
+        super.loadView()
     }
 
     
