@@ -24,12 +24,13 @@ extension NSDate{
     init(dateString: String){
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyy-MM-dd"
-        dateStringFormatter.locale = Locale(CFLocaleIdentifier: "en_US_POSIX")
+        dateStringFormatter.locale = CFLocale(CFLocaleIdentifier: "en_US_POSIX")
         let d = dateStringFormatter.date(from: dateString)!
         self.init(timeInterval: 0, sinceDate:d)
     }
 }
- */
+*/
+
 
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -125,13 +126,31 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
-        
-        findPolygonIncludingPoint(lat: 37.574832, long: 126.969185, json: json)
         */
         
-        let count = 4
-        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: count)
-        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: <#T##NSDate#>, endDate: <#T##NSDate#>)
+        func stringToDate(stringDate: String) -> Date{
+            let dateString = stringDate
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            // The below line is optional, as NSDate uses the GMT +0 timezone by default
+            // The output day may be slightly off due your timezone
+            // This will align it with the NSDate timezone default GMT + 0
+            // Keep in mind users of your app all have different timezones and this will make the date use GMT+0 timezone instead of a users local one
+            
+            dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
+            
+            let dateFromString = dateFormatter.date(from: dateString)
+            print(dateFromString)
+            return dateFromString!
+        }
+        
+        
+        var startDate = stringToDate(stringDate: "2018-01-21")
+        var endDate = stringToDate(stringDate: "2018-02-01")
+        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 19)
+        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
+        
         /*
         for i in 0..<self.latestPhotoAssetsFetched!.count{
             let asset = self.latestPhotoAssetsFetched![i]
@@ -140,19 +159,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             print("location = \(asset.location!.coordinate.longitude)")
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
-        */
-        
-        /*
-         let df: DateFormatter = DateFormatter()
-         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //df.timeZone = NSTimeZone(name: "GMT") as! TimeZone
-        //this line resolved me the issue of getting one day less than the selected date
-        
-        let startDate: Date = df.date(from: "2018-01-30 02:34:13")!
-        let endDate: Date = df.date(from: "2018-01-30 02:34:37")!
-        
-        print("\(startDate) ~ \(endDate)")
-        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate, endDate: endDate)
         */
         
         self.view.bringSubview(toFront: self.collectionView)//이거 왜 안먹을까요?
