@@ -43,12 +43,11 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    
     func colorPolygon(path: GMSMutablePath){
         let polygon = GMSPolygon(path: path)
         polygon.fillColor = UIColor(red: 103/255, green: 82/255, blue: 193/255, alpha: 0.1);
-        polygon.strokeColor = .purple
-        polygon.strokeWidth = 2
+        polygon.strokeColor = .white
+        polygon.strokeWidth = 0.3
         polygon.map = mapView
     }
     
@@ -71,7 +70,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                     marker.map = mapView
                     return
                 }
-                
             }
         }
     }
@@ -85,8 +83,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return dateFromString!
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return (latestPhotoAssetsFetched?.count)!
     }
     
@@ -117,18 +115,23 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
- 
-        var startDate = stringToDate(stringDate: "2018-01-31")
-        var endDate = stringToDate(stringDate: "2018-02-01")
-        self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
         
-        for i in 0..<self.latestPhotoAssetsFetched!.count{
-            let asset = self.latestPhotoAssetsFetched![i]
-            //print("location = \(asset.location!.coordinate.latitude)")
-            //print("location = \(asset.location!.coordinate.longitude)")
-            findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
+        
+        let startDate = stringToDate(stringDate: "2018-01-31")
+        let endDate = stringToDate(stringDate: "2018-02-01")
+        let postName = "Anam"
+        saveNewData(startDate: startDate as NSDate, endDate: endDate as NSDate, postName: postName)
+        //.self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
+        
+        for i in 0..<posts.count{
+            for j in 0..<posts[i].pictures.count{
+                let asset = posts[i].pictures[j]
+                findPolygonIncludingPoint(lat: (asset.picLocation!.latitude), long: (asset.picLocation!.longitude), json: json)
+            }
+            //let asset = self.latestPhotoAssetsFetched![i]
+            //findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
-        
+
         //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
         self.view.bringSubview(toFront: self.collectionView)
  
@@ -140,27 +143,20 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     
     func fetchLatestPhotos(forCount count: Int?) -> PHFetchResult<PHAsset> {
-        
-        // Create fetch options.
         let options = PHFetchOptions()
-
-        // If count limit is specified.
         if let count = count { options.fetchLimit = count }
-        
-        // Add sortDescriptor so the lastest photos will be returned.
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         options.sortDescriptors = [sortDescriptor]
         let result = PHAsset.fetchAssets(with: .image, options: options)
         
-        // Fetch the photos.
         return result
         
     }
+    
     var images: [UIImage] = []
     func fetchPhotosInRange(startDate: NSDate, endDate: NSDate) -> PHFetchResult<PHAsset> {
-        //var newPost: Post = Post()
-        let imgManager = PHImageManager.default()
         
+        let imgManager = PHImageManager.default()
         let requestOptions = PHImageRequestOptions()
         requestOptions.isSynchronous = true
         requestOptions.isNetworkAccessAllowed = true
@@ -168,8 +164,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "creationDate >= %@ AND creationDate <= %@", startDate, endDate)
         
-        //posts.append(newPost)
-        images = []
+        
+       images = []
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
         
         if fetchResult.count > 0{
@@ -179,7 +175,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                     if let imageData = imageData {
                         if let image = UIImage(data: imageData) {
                             self.images += [image]
-                            //print("date = \(asset.creationDate!)")
                         }
                     }
                     /*
@@ -193,6 +188,42 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         return fetchResult
         
+    }
+    
+    func saveNewData(startDate: NSDate, endDate: NSDate, postName: String){
+        var newPictures: [Picture] = []
+        var newPost: Post = Post()
+        
+        let imgManager = PHImageManager.default()
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = true
+        requestOptions.isNetworkAccessAllowed = true
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.predicate = NSPredicate(format: "creationDate >= %@ AND creationDate <= %@", startDate, endDate)
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
+        
+        if fetchResult.count > 0{
+            for index in 0..<fetchResult.count {
+                let asset = fetchResult.object(at: index)
+                imgManager.requestImageData(for: asset, options: requestOptions, resultHandler: {(imageData: Data?, dataUTI: String?, orientation: UIImageOrientation, info: [AnyHashable: Any]?) -> Void in
+                    if let imageData = imageData {
+                        if let image = UIImage(data: imageData) {
+                            let newPicture: Picture = Picture()
+                            newPicture.picDate = fetchResult[index].creationDate
+                            newPicture.picLocation = CLLocationCoordinate2D(latitude: fetchResult[index].location!.coordinate.latitude, longitude: fetchResult[index].location!.coordinate.longitude)
+                            newPicture.picImage = image
+                            newPictures.append(newPicture)
+                        }
+                    }
+                })
+            }
+        }
+        newPost.pictures = newPictures
+        newPost.travelStartDate = startDate as Date
+        newPost.travelEndDate = endDate as Date
+        newPost.travelName = postName
+        posts.append(newPost)
+        return
     }
     
     func readJSONObject(object: [String: AnyObject]){

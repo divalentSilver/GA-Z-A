@@ -33,27 +33,30 @@ class Post{
     var travelStartDate: Date?
     var travelEndDate: Date?
     var travelName: String = ""
-    
+    /*
     init(pictures: [Picture], travelStartDate: Date, travelEndDate: Date, travelName: String){
         self.pictures = pictures
         self.travelStartDate = travelStartDate
         self.travelEndDate = travelEndDate
         self.travelName = travelName
     }
+    */
 }
 
 class Picture{
     var comment: String = ""
-    let picDate: Date? //사진에서 정보 가져올 것임
-    let picLocation: CLLocationCoordinate2D? //사진에서 정보 가져올 것임
-    let picImage: UIImage? //일단은 Asset에서 가져올 것임
+    var picDate: Date?//사진에서 정보 가져올 것임
+    var picLocation: CLLocationCoordinate2D?//사진에서 정보 가져올 것임
+    var picImage: UIImage? //일단은 Asset에서 가져올 것임
     var favoriteButtonState: Bool = false
     
+    /*
     init(picDate: Date, picLocation: CLLocationCoordinate2D, picImage: UIImage){
         self.picDate = picDate
         self.picLocation = picLocation
         self.picImage = picImage
     }
+    */
 }
 
 
