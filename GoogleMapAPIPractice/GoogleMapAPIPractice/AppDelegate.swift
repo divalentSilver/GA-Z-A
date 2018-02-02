@@ -11,20 +11,17 @@ import GoogleMaps
 import CoreLocation
 import Photos
 
+
+var posts: [Post] = []
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var posts: [Post] = []
-    
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyCSMb43WaYGG1PqFr2h_wIH8wtL86vPwcQ")
-        
-        
-        
+        /*
         let picture1_1 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.574832, 126.969185), picImage: #imageLiteral(resourceName: "IMG_2119"))//2018-01-26
         let picture2_1 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.9487, 127.7501), picImage: #imageLiteral(resourceName: "IMG_0997"))//2018-01-26
         let picture2_2 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.9487, 127.7501), picImage: #imageLiteral(resourceName: "IMG_1004"))//2018-01-26
@@ -44,9 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let picture8_2 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.589, 127.0333), picImage: #imageLiteral(resourceName: "IMG_0729"))//2018-01-26
         let picture8_3 = Picture(picDate: Date(), picLocation: CLLocationCoordinate2DMake(37.586, 127.6779), picImage: #imageLiteral(resourceName: "IMG_3635"))//2017-11-24
         
-        
-        
-        
         let post1 = Post(pictures: [picture1_1], travelStartDate: Date(), travelEndDate: Date(), travelName: "Busan")
         let post2 = Post(pictures: [picture2_1, picture2_2], travelStartDate: Date(), travelEndDate: Date(), travelName: "Chuncheon")
         let post3 = Post(pictures: [picture3_1, picture3_2], travelStartDate: Date(), travelEndDate: Date(), travelName: "Sinchon")
@@ -64,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         posts.append(post6)
         posts.append(post7)
         posts.append(post8)
-        
+        */
         
         
         return true

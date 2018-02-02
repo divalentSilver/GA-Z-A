@@ -19,6 +19,7 @@ import SwiftyJSON
 import Photos
 
 
+
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
 /////AddButton 추가
@@ -31,7 +32,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     private var geoJsonParser: GMUGeoJSONParser!
 
     var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
@@ -45,8 +46,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func colorPolygon(path: GMSMutablePath){
         let polygon = GMSPolygon(path: path)
-        polygon.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1);
-        polygon.strokeColor = .black
+        polygon.fillColor = UIColor(red: 103/255, green: 82/255, blue: 193/255, alpha: 0.1);
+        polygon.strokeColor = .purple
         polygon.strokeWidth = 2
         polygon.map = mapView
     }
@@ -64,6 +65,10 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
                 if isPointInPolygon(point: point, path: path){
                     colorPolygon(path: path)
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    marker.icon = GMSMarker.markerImage(with: .purple)
+                    marker.map = mapView
                     return
                 }
                 
@@ -75,35 +80,23 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let dateString = stringDate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        // The below line is optional, as NSDate uses the GMT +0 timezone by default
-        // The output day may be slightly off due your timezone
-        // This will align it with the NSDate timezone default GMT + 0
-        // Keep in mind users of your app all have different timezones and this will make the date use GMT+0 timezone instead of a users local one
-        
-        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+9:00") as TimeZone!
         let dateFromString = dateFormatter.date(from: dateString)
         return dateFromString!
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (latestPhotoAssetsFetched?.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
-        
-        // Get the asset. If nothing, return the cell.
         guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
             return cell
         }
-        // Here we bind the asset with the cell.
         cell.representedAssetIdentifier = asset.localIdentifier
-        // Request the image.
         PHImageManager.default().requestImage(for: asset,targetSize: cell.photo.frame.size,                                        contentMode: .aspectFill, options: nil) { (image, _) in
-            // By the time the image is returned, the cell may has been recycled.
-            // We update the UI only when it is still on the screen.
             if cell.representedAssetIdentifier == asset.localIdentifier {
                 cell.photo.image = image
             }
@@ -114,8 +107,6 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
-        //self.collectionView.delegate = self
-        //self.collectionView.dataSource = self
     }
     
     fileprivate func setupMapView() {
@@ -123,28 +114,24 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 20, width: 375, height: 647), camera: camera)
         self.view.addSubview(mapView)
         
-        
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
         let data = NSData(contentsOfFile: path!)
         let json = JSON(data! as Data)
-        
-        
-        var startDate = stringToDate(stringDate: "2018-01-22")
+ 
+        var startDate = stringToDate(stringDate: "2018-01-31")
         var endDate = stringToDate(stringDate: "2018-02-01")
-        
         self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
-        
         
         for i in 0..<self.latestPhotoAssetsFetched!.count{
             let asset = self.latestPhotoAssetsFetched![i]
-            //print("date = \(asset.creationDate!)")
-            print("location = \(asset.location!.coordinate.latitude)")
-            print("location = \(asset.location!.coordinate.longitude)")
+            //print("location = \(asset.location!.coordinate.latitude)")
+            //print("location = \(asset.location!.coordinate.longitude)")
             findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
         }
         
-        
+        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
         self.view.bringSubview(toFront: self.collectionView)
+ 
     }
     
     override func loadView() {
@@ -171,7 +158,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     var images: [UIImage] = []
     func fetchPhotosInRange(startDate: NSDate, endDate: NSDate) -> PHFetchResult<PHAsset> {
-        
+        //var newPost: Post = Post()
         let imgManager = PHImageManager.default()
         
         let requestOptions = PHImageRequestOptions()
@@ -181,8 +168,10 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "creationDate >= %@ AND creationDate <= %@", startDate, endDate)
         
+        //posts.append(newPost)
         images = []
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
+        
         if fetchResult.count > 0{
             for index in 0..<fetchResult.count {
                 let asset = fetchResult.object(at: index)
@@ -190,22 +179,18 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                     if let imageData = imageData {
                         if let image = UIImage(data: imageData) {
                             self.images += [image]
+                            //print("date = \(asset.creationDate!)")
                         }
                     }
+                    /*
                     if self.images.count == fetchResult.count {
                         //Do something once all the images have been fetched
                         print(self.images)
                     }
+                    */
                 })
             }
         }
-        /*
-         for i in 0 ..< result.count {
-         let asset = result[i]
-         print("date = \(asset.creationDate!)")
-         print("location = \(asset.location!)")
-         }
-         */
         return fetchResult
         
     }
