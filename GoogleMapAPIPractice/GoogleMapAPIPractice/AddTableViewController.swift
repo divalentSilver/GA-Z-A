@@ -12,14 +12,18 @@ class AddTableViewController: UITableViewController {
     
 /////CellSizing 2nd line: From
     ///Cell 선택 이벤트
-    @IBAction func FromPicker(_ sender: Any) {
+    
+    //@IBOutlet weak var startDatePicker: UIDatePicker!
+    
+    //@IBOutlet weak var endDatePicker: UIDatePicker!
+    
+    @IBAction func selectDoneButton(_ sender: Any) {
+        //startDatePicker.date
         
     }
-    
-    
     @IBOutlet var AddTableView: AddTableView!
     
-    
+    /*
     var cellExpanse: Bool = false
     
     func tableView(_tableView: AddTableView, didSelectRowAt indexPath: IndexPath){
@@ -41,17 +45,9 @@ class AddTableViewController: UITableViewController {
         }
         return 230
     }
-    
-/////CellSizing 3rd line: To
-    ///Cell 선택 이벤트
-    @IBAction func ToPicker(_ sender: Any) {
-        
-    }
+ */
     
 
-/////CellSizing 4th line: Select
-    @IBAction func SelectPicture(_ sender: Any) {
-    }
 /////이미지 추가
 //    let attachment = NSTextAttachment()
 //
