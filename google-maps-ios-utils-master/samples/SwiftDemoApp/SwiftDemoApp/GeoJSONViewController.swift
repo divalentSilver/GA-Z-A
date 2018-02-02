@@ -22,10 +22,14 @@ import Photos
 
 class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate {
 
-/////AddButton 추가
-    @IBOutlet weak var addButton: UIButton!
+
     
-    @IBOutlet weak var logo: UIImageView!
+    @IBAction func addPostButton(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var mainBar: UINavigationBar!
+    
+    @IBOutlet weak var logo: UILabel!
     
     
     private var mapView: GMSMapView!
@@ -163,7 +167,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func bringSubviewToFront(){
         self.view.bringSubview(toFront: self.collectionView)
-        self.view.bringSubview(toFront: self.addButton)
+        self.view.bringSubview(toFront: self.mainBar)
         self.view.bringSubview(toFront: self.logo)
     }
     
