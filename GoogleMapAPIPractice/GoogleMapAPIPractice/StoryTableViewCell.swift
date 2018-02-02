@@ -9,7 +9,10 @@
 import UIKit
 
 class StoryImageTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var StoryImageView: UIImageView!
+    @IBOutlet weak var StoryDateLabel: UILabel!
+    @IBOutlet weak var StoryMemoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

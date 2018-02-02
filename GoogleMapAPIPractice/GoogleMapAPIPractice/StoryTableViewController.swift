@@ -13,7 +13,9 @@ class StoryTableViewController: UITableViewController {
 
     
     var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
-
+    var selectedIndex: Int = 0
+    var selectedPost: Post! = posts[0]
+    
 ////////
 //작성 내용 저장하기
 //https://soooprmx.com/archives/1984
@@ -36,11 +38,7 @@ class StoryTableViewController: UITableViewController {
     
     
     
-    @IBOutlet weak var StoryMemoTextField: UITextField!
-    @IBOutlet weak var StoryImageView: UIImageView!
-    @IBOutlet weak var StoryDateLabel: UILabel!
-    @IBOutlet weak var StoryPlaceLabel: UILabel!
-    @IBOutlet weak var StoryMemoLabel: UILabel!
+ 
 /////StoryMemoLabel이 Edit하면 사용자가 작성한 내용으로 변경되어야 함
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,23 +64,19 @@ class StoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return (latestPhotoAssetsFetched?.count)!
+        var selectedPost: Post! = posts[0]
+        return selectedPost.pictures.count
     }
-/*
-/////////////스토리 내 각 이미지+메모 구성
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryTableView
 
-        cell.StoryImageView?.UIImage = latestPhotoAssetsFetched[indexPath.row]
-        ///////////데이터셋 각 이미지
-        //cell.StoryDateLabel?.text = PHAsset.
-        //cell.StoryPlaceLabel?.text = PHAsset.
-        //cell.StoryMemoLabel?.text = PHAsset.
-        
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryImageTableViewCell
+        cell.StoryImageView.image = selectedPost.pictures[indexPath.item].picImage
+        cell.StoryDateLabel.text = String(describing: selectedPost.pictures[indexPath.item].picDate)
         return cell
     }
-*/
+
 
     /*
     // Override to support conditional editing of the table view.

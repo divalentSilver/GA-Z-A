@@ -32,6 +32,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     private var renderer: GMUGeometryRenderer!
     private var geoJsonParser: GMUGeoJSONParser!
     var selectedPost: Post!
+    
 
     //var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
     
@@ -105,26 +106,28 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
         var selectedPost: Post! = posts[0]
-        /*
-        guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
-            return cell
-        }
-        cell.representedAssetIdentifier = asset.localIdentifier
-        PHImageManager.default().requestImage(for: asset,targetSize: cell.photo.frame.size,                                        contentMode: .aspectFill, options: nil) { (image, _) in
-            if cell.representedAssetIdentifier == asset.localIdentifier {
-                cell.photo.image = image
-            }
-        }
-        */
         cell.photo.image = selectedPost.pictures[indexPath.item].picImage
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = mainStoryBoard.instantiateViewController(withIdentifier: "StoryTableViewController") as! StoryTableViewController
+        destinationVC.selectedIndex = indexPath.item
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         setupMapView()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     
     fileprivate func setupMapView() {
@@ -154,10 +157,14 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
         
+        bringSubviewToFront()
+ 
+    }
+    
+    func bringSubviewToFront(){
         self.view.bringSubview(toFront: self.collectionView)
         self.view.bringSubview(toFront: self.addButton)
         self.view.bringSubview(toFront: self.logo)
- 
     }
     
     override func loadView() {
