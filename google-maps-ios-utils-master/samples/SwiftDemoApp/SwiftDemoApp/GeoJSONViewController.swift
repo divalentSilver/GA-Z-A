@@ -20,7 +20,7 @@ import Photos
 
 
 
-class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate {
 
 /////AddButton 추가
     @IBOutlet weak var addButton: UIButton!
@@ -30,10 +30,21 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
     private var geoJsonParser: GMUGeoJSONParser!
+    var selectedPost: Post!
 
-    var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
+    //var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker){
+        for i in 0..<posts.count{
+            for j in 0..<posts[i].pictures.count{
+                if posts[i].pictures[j].marker == marker {
+                    selectedPost = posts[i]
+                }
+            }
+        }
+    }
     
     func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
         if GMSGeometryContainsLocation(point, path, true) {
@@ -83,13 +94,17 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return dateFromString!
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return (latestPhotoAssetsFetched?.count)!
-    }
     
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var selectedPost: Post! = posts[0]
+        return selectedPost.pictures.count
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
+        var selectedPost: Post! = posts[0]
+        /*
         guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
             return cell
         }
@@ -99,6 +114,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                 cell.photo.image = image
             }
         }
+        */
+        cell.photo.image = selectedPost.pictures[indexPath.item].picImage
         return cell
     }
     
@@ -106,6 +123,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         setupMapView()
     }
+    
+    
     
     fileprivate func setupMapView() {
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
@@ -133,7 +152,9 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 
         //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
+        
         self.view.bringSubview(toFront: self.collectionView)
+        self.view.bringSubview(toFront: self.addButton)
  
     }
     

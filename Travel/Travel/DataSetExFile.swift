@@ -49,6 +49,7 @@ class Picture{
     var picLocation: CLLocationCoordinate2D?//사진에서 정보 가져올 것임
     var picImage: UIImage? //일단은 Asset에서 가져올 것임
     var favoriteButtonState: Bool = false
+    var marker: GMSMarker?
     
     /*
     init(picDate: Date, picLocation: CLLocationCoordinate2D, picImage: UIImage){
