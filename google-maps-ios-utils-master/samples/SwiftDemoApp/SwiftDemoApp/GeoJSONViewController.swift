@@ -30,10 +30,21 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
     private var geoJsonParser: GMUGeoJSONParser!
+    var selectedPost: Post!
 
     //var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker){
+        for i in 0..<posts.count{
+            for j in 0..<posts[i].pictures.count{
+                if posts[i].pictures[j].marker == marker {
+                    selectedPost = posts[i]
+                }
+            }
+        }
+    }
     
     func isPointInPolygon(point: CLLocationCoordinate2D, path: GMSMutablePath) -> Bool{
         if GMSGeometryContainsLocation(point, path, true) {
@@ -83,15 +94,13 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return dateFromString!
     }
     
-    //var selectedPost: Post! = posts[0]
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var selectedPost: Post! = posts[0]
         return selectedPost.pictures.count
     }
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
         var selectedPost: Post! = posts[0]
@@ -114,6 +123,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         setupMapView()
     }
+    
     
     
     fileprivate func setupMapView() {
@@ -144,6 +154,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
         
         self.view.bringSubview(toFront: self.collectionView)
+        self.view.bringSubview(toFront: self.addButton)
  
     }
     
