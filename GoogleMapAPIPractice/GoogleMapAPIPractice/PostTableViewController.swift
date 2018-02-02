@@ -1,36 +1,27 @@
 //
-//  AddTableViewController.swift
+//  PostTableViewController.swift
 //  GoogleMapAPIPractice
 //
-//  Created by cscoi014 on 2018. 1. 30..
+//  Created by cscoi044 on 2018. 2. 2..
 //  Copyright © 2018년 KaEun Rhee. All rights reserved.
 //
 
 import UIKit
 
-class AddTableViewController: UITableViewController {
-    
+class PostTableViewController: UITableViewController {
 
-    
-    //@IBOutlet weak var startDatePicker: UIDatePicker!
-    
-    //@IBOutlet weak var endDatePicker: UIDatePicker!
-    
-    /*
-    @IBAction func selectDoneButton(_ sender: Any) {
-        //startDatePicker.date
-        
-    }
-     */
-    //@IBOutlet var AddTableView: AddTableView!
-    
-
-    
-    
+    var selectedPost: Post! = posts[0]
+    var selectedIndex: Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,37 +37,20 @@ class AddTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
+    //    var selectedPost: Post! = posts[0]
+        return selectedPost.pictures.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FromCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ToCell", for: indexPath)
-            
-            
-            
-            return cell
-        } else { //indexPath.row == 3
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PictureCell", for: indexPath)
-            
-            
-            
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        
+        //print(selectedPost.pictures[indexPath.item].picDate)
+        cell.dateInfo.text = String(describing: selectedPost.pictures[indexPath.item].picDate!)
+        cell.imageInfo.image = selectedPost.pictures[indexPath.item].picImage
+        // Configure the cell...
+
+        return cell
     }
     
 

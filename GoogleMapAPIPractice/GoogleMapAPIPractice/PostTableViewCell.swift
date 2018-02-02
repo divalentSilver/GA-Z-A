@@ -1,15 +1,21 @@
 //
-//  FromTableViewCell.swift
+//  PostTableViewCell.swift
 //  GoogleMapAPIPractice
 //
-//  Created by cscoi044 on 2018. 1. 30..
+//  Created by cscoi044 on 2018. 2. 2..
 //  Copyright © 2018년 KaEun Rhee. All rights reserved.
 //
 
 import UIKit
 
-class FromTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dateInfo: UILabel!
+    @IBOutlet weak var imageInfo: UIImageView!
+    @IBOutlet weak var memoInfo: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -16,38 +16,10 @@ class StoryTableViewController: UITableViewController {
     var selectedIndex: Int = 0
     var selectedPost: Post! = posts[0]
     
-////////
-//작성 내용 저장하기
-//https://soooprmx.com/archives/1984
-//rootviewcontroller 불러오기는 아래
-//    let viewController: UIViewController = UIApplication.sharedApplication().delegate!.window!!.rootViewController!
-//그런데 rootviewcontroller.h가 필요하다고 뭐지
-//거기에다 아래 추가
-//    #import <UIKit/UIKit.h>
-//
-//    @interface RootViewController : UIViewController
-//    {
-//    NSString *dataFilePath;
-//    }
-//    @property (nonatomic, strong) IBOutlet UITextView *memo;
-//    -(IBAction)saveData:(id)sender;
-//    @end
-    //*memo가 인터페이스 빌더에서 추가한 텍스트뷰의 아울렛: 뭐가 텍스트뷰? 라벨? 텍스트필드?
-//    출처: http://devsc.tistory.com/19 [You Know Programing?]
-//
-    
-    
-    
- 
-/////StoryMemoLabel이 Edit하면 사용자가 작성한 내용으로 변경되어야 함
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,9 +43,9 @@ class StoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryImageTableViewCell
-        cell.StoryImageView.image = selectedPost.pictures[indexPath.item].picImage
-        cell.StoryDateLabel.text = String(describing: selectedPost.pictures[indexPath.item].picDate)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTableViewCell", for: indexPath) as! StoryTableViewCell
+        cell.photoImage1.image = selectedPost.pictures[indexPath.item].picImage
+        cell.photoDate1.text = String(describing: selectedPost.pictures[indexPath.item].picDate)
         return cell
     }
 

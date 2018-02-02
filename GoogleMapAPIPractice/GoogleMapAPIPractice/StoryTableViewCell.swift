@@ -1,17 +1,20 @@
 //
-//  StoryImageTableViewCell.swift
+//  StoryTableViewCell.swift
 //  GoogleMapAPIPractice
 //
-//  Created by cscoi014 on 2018. 1. 31..
+//  Created by cscoi044 on 2018. 2. 2..
 //  Copyright © 2018년 KaEun Rhee. All rights reserved.
 //
 
 import UIKit
 
-class StoryImageTableViewCell: UITableViewCell {
-    @IBOutlet weak var StoryImageView: UIImageView!
-    @IBOutlet weak var StoryDateLabel: UILabel!
-    @IBOutlet weak var StoryMemoLabel: UILabel!
+class StoryTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var photoDate1: UILabel!
+    
+    @IBOutlet weak var photoImage1: UIImageView!
+    
+    @IBOutlet weak var photoMemo1: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

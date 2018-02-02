@@ -111,16 +111,28 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
         var selectedPost: Post! = posts[0]
         cell.photo.image = selectedPost.pictures[indexPath.item].picImage
+        
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postSegue" {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)!
+            let detailVC = segue.destination as! PostTableViewController
+            detailVC.selectedIndex = indexPath.item
+        }
+    }
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let destinationVC = mainStoryBoard.instantiateViewController(withIdentifier: "StoryTableViewController") as! StoryTableViewController
         destinationVC.selectedIndex = indexPath.item
+        var desVC =
         self.navigationController?.pushViewController(destinationVC, animated: true)
         
     }
+ */
     
     override func viewDidLoad() {
         super.viewDidLoad()
