@@ -20,7 +20,7 @@ import Photos
 
 
 
-class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GMSMapViewDelegate {
 
 /////AddButton 추가
     @IBOutlet weak var addButton: UIButton!
@@ -31,7 +31,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     private var renderer: GMUGeometryRenderer!
     private var geoJsonParser: GMUGeoJSONParser!
 
-    var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
+    //var latestPhotoAssetsFetched: PHFetchResult<PHAsset>? = nil
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -83,13 +83,19 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         return dateFromString!
     }
     
+    //var selectedPost: Post! = posts[0]
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return (latestPhotoAssetsFetched?.count)!
+        var selectedPost: Post! = posts[0]
+        return selectedPost.pictures.count
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PictureCollectionViewCell
+        var selectedPost: Post! = posts[0]
+        /*
         guard let asset = self.latestPhotoAssetsFetched?[indexPath.item] else {
             return cell
         }
@@ -99,6 +105,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
                 cell.photo.image = image
             }
         }
+        */
+        cell.photo.image = selectedPost.pictures[indexPath.item].picImage
         return cell
     }
     
@@ -106,6 +114,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         setupMapView()
     }
+    
     
     fileprivate func setupMapView() {
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
@@ -133,6 +142,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
 
         //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
+        
         self.view.bringSubview(toFront: self.collectionView)
  
     }
