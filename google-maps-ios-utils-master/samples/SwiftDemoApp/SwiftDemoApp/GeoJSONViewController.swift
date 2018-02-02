@@ -25,7 +25,8 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
 /////AddButton 추가
     @IBOutlet weak var addButton: UIButton!
     
-    @IBOutlet weak var uiMapView: UIView!
+    @IBOutlet weak var logo: UIImageView!
+    
     
     private var mapView: GMSMapView!
     private var renderer: GMUGeometryRenderer!
@@ -155,6 +156,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         self.view.bringSubview(toFront: self.collectionView)
         self.view.bringSubview(toFront: self.addButton)
+        self.view.bringSubview(toFront: self.logo)
  
     }
     
