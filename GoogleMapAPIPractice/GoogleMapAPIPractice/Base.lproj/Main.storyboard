@@ -140,10 +140,6 @@
                                                 </imageView>
                                             </subviews>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="remove-picture" translatesAutoresizingMaskIntoConstraints="NO" id="j42-mL-OBY">
-                                            <rect key="frame" x="340" y="14" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                     <connections>
                                         <outlet property="dateInfo" destination="rLN-TN-5JL" id="Xh5-oK-IWX"/>
@@ -467,6 +463,5 @@
         <image name="cancel-2-2" width="25" height="25"/>
         <image name="confirm-2" width="25" height="25"/>
         <image name="photo-camera-2-3" width="25" height="25"/>
-        <image name="remove-picture" width="25" height="25"/>
     </resources>
 </document>
