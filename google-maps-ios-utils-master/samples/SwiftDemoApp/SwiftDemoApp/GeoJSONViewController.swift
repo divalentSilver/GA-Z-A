@@ -180,7 +180,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     func bringSubviewToFront(){
         self.view.bringSubview(toFront: self.collectionView)
         self.view.bringSubview(toFront: self.mainBar)
-        self.view.bringSubview(toFront: self.logo)
+        //self.view.bringSubview(toFront: self.logo)
     }
     
     override func loadView() {
