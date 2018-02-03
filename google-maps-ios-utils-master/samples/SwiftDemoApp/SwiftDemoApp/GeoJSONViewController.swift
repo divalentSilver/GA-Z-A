@@ -148,7 +148,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     fileprivate func setupMapView() {
         let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
-        mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 20, width: 375, height: 647), camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: 375, height: 647), camera: camera)
         self.view.addSubview(mapView)
         
         let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
@@ -179,7 +179,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func bringSubviewToFront(){
         self.view.bringSubview(toFront: self.collectionView)
-        self.view.bringSubview(toFront: self.mainBar)
+        //self.view.bringSubview(toFront: self.mainBar)
         //self.view.bringSubview(toFront: self.logo)
     }
     

@@ -1,20 +1,16 @@
 //
-//  StoryTableViewCell.swift
+//  FromDateTableViewCell.swift
 //  GoogleMapAPIPractice
 //
-//  Created by cscoi044 on 2018. 2. 2..
+//  Created by cscoi045 on 2018. 2. 3..
 //  Copyright © 2018년 KaEun Rhee. All rights reserved.
 //
 
 import UIKit
 
-class StoryTableViewCell: UITableViewCell {
+class FromDateTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var photoDate1: UILabel!
-    
-    @IBOutlet weak var photoImage1: UIImageView!
-    
-    @IBOutlet weak var photoMemo1: UILabel!
+    @IBOutlet weak var fromDate: UIDatePicker!
     
     override func awakeFromNib() {
         super.awakeFromNib()

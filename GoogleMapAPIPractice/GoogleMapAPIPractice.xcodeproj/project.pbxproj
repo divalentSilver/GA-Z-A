@@ -44,14 +44,15 @@
 		07A96EE6201C65AF007BEF01 /* sample.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 07A96EE5201C65AF007BEF01 /* sample.geojson */; };
 		50A916BAE0115351FCCC3B5B /* Pods_GoogleMapAPIPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132D54040FF4E3661B56A74C /* Pods_GoogleMapAPIPracticeUITests.framework */; };
 		8C3C586C201EED5F00836D25 /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3C586B201EED5F00836D25 /* PictureCollectionViewCell.swift */; };
-		8C51F0B52024652F00765AB6 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51F0B42024652F00765AB6 /* StoryTableViewCell.swift */; };
 		8C51F0B7202475C400765AB6 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51F0B6202475C400765AB6 /* PostTableViewController.swift */; };
 		8C51F0B9202475E100765AB6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51F0B8202475E100765AB6 /* PostTableViewCell.swift */; };
 		8C5A7772201DC5AD00C1451A /* DataSetExFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */; };
 		8C632BAC2021ACCE00C278D4 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */; };
 		8C632BAD2021ACCE00C278D4 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC7142D920257A4F00EC510A /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7142D820257A4F00EC510A /* TitleTableViewCell.swift */; };
+		AC7142DB20257A9100EC510A /* FromDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7142DA20257A9100EC510A /* FromDateTableViewCell.swift */; };
+		AC7142DD20257AA700EC510A /* ToDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7142DC20257AA700EC510A /* ToDateTableViewCell.swift */; };
 		CD76AC0120203B5000E91899 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76AC0020203B5000E91899 /* AddTableViewController.swift */; };
-		CD76AC4D20218FC700E91899 /* StoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76AC4C20218FC700E91899 /* StoryTableViewController.swift */; };
 		D525C0A6F5F7142676BC91C4 /* Pods_GoogleMapAPIPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */; };
 		DE249731B77ADE19019108EC /* Pods_GoogleMapAPIPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2886BE4788FC8D9950EDE6B0 /* Pods_GoogleMapAPIPractice.framework */; };
 /* End PBXBuildFile section */
@@ -176,15 +177,16 @@
 		4E037B9C8BB47D810B3D08D0 /* Pods-GoogleMapAPIPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeTests/Pods-GoogleMapAPIPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8643C8226C64B8ACE9E543C1 /* Pods-GoogleMapAPIPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPractice/Pods-GoogleMapAPIPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		8C3C586B201EED5F00836D25 /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
-		8C51F0B42024652F00765AB6 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		8C51F0B6202475C400765AB6 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		8C51F0B8202475E100765AB6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSetExFile.swift; path = ../../Travel/Travel/DataSetExFile.swift; sourceTree = "<group>"; };
 		8C632BAB2021ACCE00C278D4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = GoogleMapAPIPractice/SwiftyJSON.framework; sourceTree = "<group>"; };
 		9716563C1695AC8873D090E9 /* Pods-GoogleMapAPIPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC7142D820257A4F00EC510A /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		AC7142DA20257A9100EC510A /* FromDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDateTableViewCell.swift; sourceTree = "<group>"; };
+		AC7142DC20257AA700EC510A /* ToDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDateTableViewCell.swift; sourceTree = "<group>"; };
 		B693754A18206C3EE068364C /* Pods-GoogleMapAPIPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapAPIPracticeUITests/Pods-GoogleMapAPIPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CD76AC0020203B5000E91899 /* AddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
-		CD76AC4C20218FC700E91899 /* StoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewController.swift; sourceTree = "<group>"; };
 		EE262F8E8773BCB35FD35B86 /* Pods_GoogleMapAPIPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapAPIPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,9 @@
 				8C5A7771201DC5AD00C1451A /* DataSetExFile.swift */,
 				07039F8E20175E8000879FFA /* ViewController.swift */,
 				07039F9020175E8000879FFA /* Main.storyboard */,
+				AC7142DA20257A9100EC510A /* FromDateTableViewCell.swift */,
+				AC7142DC20257AA700EC510A /* ToDateTableViewCell.swift */,
+				AC7142D820257A4F00EC510A /* TitleTableViewCell.swift */,
 				8C51F0B6202475C400765AB6 /* PostTableViewController.swift */,
 				8C51F0B8202475E100765AB6 /* PostTableViewCell.swift */,
 				8C3C586B201EED5F00836D25 /* PictureCollectionViewCell.swift */,
@@ -259,8 +264,6 @@
 				07039F9520175E8000879FFA /* LaunchScreen.storyboard */,
 				07039F9820175E8000879FFA /* Info.plist */,
 				CD76AC0020203B5000E91899 /* AddTableViewController.swift */,
-				CD76AC4C20218FC700E91899 /* StoryTableViewController.swift */,
-				8C51F0B42024652F00765AB6 /* StoryTableViewCell.swift */,
 			);
 			path = GoogleMapAPIPractice;
 			sourceTree = "<group>";
@@ -742,11 +745,11 @@
 				079F1D632018EFC90087E466 /* GMUSimpleClusterAlgorithm.m in Sources */,
 				079F1D672018EFC90087E466 /* GMUStaticCluster.m in Sources */,
 				8C51F0B9202475E100765AB6 /* PostTableViewCell.swift in Sources */,
-				CD76AC4D20218FC700E91899 /* StoryTableViewController.swift in Sources */,
 				CD76AC0120203B5000E91899 /* AddTableViewController.swift in Sources */,
 				079F1D642018EFC90087E466 /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				079F1D602018EFC90087E466 /* GMUClusterManager.m in Sources */,
 				079F1D692018EFC90087E466 /* GMUGradient.m in Sources */,
+				AC7142DB20257A9100EC510A /* FromDateTableViewCell.swift in Sources */,
 				07039F8F20175E8000879FFA /* ViewController.swift in Sources */,
 				079F1D752018EFC90087E466 /* GMUGeoJSONParser.m in Sources */,
 				079F1D6E2018EFC90087E466 /* GMUPlacemark.m in Sources */,
@@ -757,6 +760,8 @@
 				079F1D6F2018EFC90087E466 /* GMUPolygon.m in Sources */,
 				079F1D6B2018EFC90087E466 /* GMUKMLParser.m in Sources */,
 				07A96EA5201B8128007BEF01 /* GeoJSONViewController.swift in Sources */,
+				AC7142D920257A4F00EC510A /* TitleTableViewCell.swift in Sources */,
+				AC7142DD20257AA700EC510A /* ToDateTableViewCell.swift in Sources */,
 				079F1D712018EFC90087E466 /* GMUGroundOverlay.m in Sources */,
 				8C51F0B7202475C400765AB6 /* PostTableViewController.swift in Sources */,
 				8C5A7772201DC5AD00C1451A /* DataSetExFile.swift in Sources */,
@@ -768,7 +773,6 @@
 				8C3C586C201EED5F00836D25 /* PictureCollectionViewCell.swift in Sources */,
 				079F1D682018EFC90087E466 /* GMUWeightedLatLng.m in Sources */,
 				07039F8D20175E8000879FFA /* AppDelegate.swift in Sources */,
-				8C51F0B52024652F00765AB6 /* StoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

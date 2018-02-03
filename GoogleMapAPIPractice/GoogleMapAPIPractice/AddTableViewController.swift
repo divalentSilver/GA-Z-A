@@ -11,23 +11,13 @@ import UIKit
 class AddTableViewController: UITableViewController {
     
 
-    
-    //@IBOutlet weak var startDatePicker: UIDatePicker!
-    
-    //@IBOutlet weak var endDatePicker: UIDatePicker!
-    
-    /*
-    @IBAction func selectDoneButton(_ sender: Any) {
-        //startDatePicker.date
-        
+    @IBAction func tapDoneButton(_ sender: Any) {
+        self.dismiss(animated: true) {
+            posts.append(contentsOf: <#T##Sequence#>)
+        }
     }
-     */
-    //@IBOutlet var AddTableView: AddTableView!
     
 
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
