@@ -27,9 +27,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBAction func addPostButton(_ sender: Any) {
     }
     
-    @IBOutlet weak var mainBar: UINavigationBar!
-    
-    @IBOutlet weak var logo: UILabel!
+
     
     
     private var mapView: GMSMapView!
@@ -123,16 +121,7 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
             detailVC.selectedIndex = indexPath.item
         }
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationVC = mainStoryBoard.instantiateViewController(withIdentifier: "StoryTableViewController") as! StoryTableViewController
-        destinationVC.selectedIndex = indexPath.item
-        var desVC =
-        self.navigationController?.pushViewController(destinationVC, animated: true)
-        
-    }
- */
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,13 +136,11 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     fileprivate func setupMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: 37.574832, longitude: 126.969185, zoom: 12)
+        let camera = GMSCameraPosition.camera(withLatitude: 37.585, longitude: 127.022002, zoom: 13.5)
         mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: 375, height: 647), camera: camera)
         self.view.addSubview(mapView)
         
-        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
-        let data = NSData(contentsOfFile: path!)
-        let json = JSON(data! as Data)
+        
         
         
         let startDate = stringToDate(stringDate: "2018-01-31")
@@ -162,17 +149,20 @@ class GeoJSONViewController: UIViewController, UICollectionViewDelegate, UIColle
         saveNewData(startDate: startDate as NSDate, endDate: endDate as NSDate, postName: postName)
         //.self.latestPhotoAssetsFetched = self.fetchPhotosInRange(startDate: startDate as! NSDate, endDate: endDate as! NSDate)
         
+        
+        
+        let path = Bundle.main.path(forResource: "HangJeongDong_ver2017xxxx_for update", ofType: "geojson")
+        let data = NSData(contentsOfFile: path!)
+        let json = JSON(data! as Data)
         for i in 0..<posts.count{
             for j in 0..<posts[i].pictures.count{
                 let asset = posts[i].pictures[j]
                 findPolygonIncludingPoint(lat: (asset.picLocation!.latitude), long: (asset.picLocation!.longitude), json: json)
             }
-            //let asset = self.latestPhotoAssetsFetched![i]
-            //findPolygonIncludingPoint(lat: (asset.location!.coordinate.latitude), long: (asset.location!.coordinate.longitude), json: json)
+            
         }
+ 
 
-        //self.latestPhotoAssetsFetched = self.fetchLatestPhotos(forCount: 2)
-        
         bringSubviewToFront()
  
     }

@@ -7,39 +7,34 @@
 //
 
 import UIKit
+import GoogleMaps
+import SwiftyJSON
+import Photos
 
 class AddTableViewController: UITableViewController {
     
-
-    @IBAction func tapDoneButton(_ sender: Any) {
-        self.dismiss(animated: true) {
-            posts.append(contentsOf: <#T##Sequence#>)
-        }
-    }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -68,6 +63,14 @@ class AddTableViewController: UITableViewController {
             return cell
         }
     }
+
+    @IBAction func tapDoneButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
     
 
     /*
