@@ -23,10 +23,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="G0q-9n-STG"/>
                                     <constraint firstAttribute="width" constant="100" id="Vcb-Pq-2j2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="lkF-jk-O0f"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="x4U-Qw-0XB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GA-Z-A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cy-j0-h1F">
-                                <rect key="frame" x="156" y="335" width="62" height="21"/>
+                                <rect key="frame" x="156.5" y="335" width="62" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="2lZ-Vc-EEc"/>
+                                    <constraint firstAttribute="height" constant="21" id="8CJ-gW-W1k"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -34,10 +40,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Cy-j0-h1F" secondAttribute="bottom" constant="311" id="6xF-9W-Zn4"/>
                             <constraint firstItem="mpG-Xj-4vp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Gku-Nr-KZk"/>
                             <constraint firstItem="6Cy-j0-h1F" firstAttribute="top" secondItem="mpG-Xj-4vp" secondAttribute="bottom" constant="8" id="O5b-lE-3fa"/>
                             <constraint firstItem="mpG-Xj-4vp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="Upv-kB-3ZH"/>
+                            <constraint firstItem="6Cy-j0-h1F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jC7-5H-axf"/>
                             <constraint firstItem="6Cy-j0-h1F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zR0-fv-Vv9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
