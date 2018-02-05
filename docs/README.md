@@ -41,7 +41,7 @@ Total application design, Coding
 * Kounglin Kim - Initial work
 Total application design, Application icon design
 * Sinyoung Jun - Initial work - PurpleBooth
-Total application design, Screen desgign
+Total application design, Screen design
 
 
 #License
