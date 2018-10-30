@@ -9,23 +9,14 @@ You need to agree to the access of application to your photo album since it requ
 .
 
 #Installing
-Click Download in AppStore
-
-#Running the tests
-.
-
-#Break down into end to end tests
-.
-
-#And coding style tests
-.
+Download the application from this repository.
 
 #Deployment
 .
 
 #Built With
+* XCode
 * Google Maps API
-* JSON
 * Swifty JSON
 
 
@@ -33,11 +24,11 @@ Click Download in AppStore
 .
 
 #Versioning
-ver_1.0
+ver 1.0
 
 #Authors
-* Gaeun Lee - Initial work 
-Total application design, Coding 
+* Kaeun Ree - Initial work 
+Total application design, Programming
 * Kounglin Kim - Initial work
 Total application design, Application icon design
 * Sinyoung Jun - Initial work - PurpleBooth
