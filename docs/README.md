@@ -27,7 +27,7 @@ Download the application from this repository.
 ver 1.0
 
 #Authors
-* Kaeun Ree - Initial work 
+* Kaeun Rhee - Initial work 
 Total application design, Programming
 * Kounglin Kim - Initial work
 Total application design, Application icon design
